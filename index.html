@@ -1147,56 +1147,102 @@
                 height: 35px;
             }
 
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                flex-direction: column;
-                padding: 15px;
-                box-shadow: var(--shadow);
-                z-index: 1001;
-                border-radius: 0 0 10px 10px;
-            }
+        /* Enhanced Navigation Links */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
 
-            .nav-links.active {
-                display: flex;
-            }
+        .nav-links li {
+            position: relative;
+            overflow: hidden;
+        }
 
-            .nav-links li {
-                margin: 5px 0;
-            }
+        .nav-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px 18px;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: block;
+        }
 
-            .nav-links a {
-                padding: 8px 0;
-                display: block;
-                border-bottom: 1px solid #eee;
-            }
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            border-radius: 20px;
+        }
 
-            .nav-actions {
-                gap: 8px;
-                flex-shrink: 0;
-            }
+        .nav-links a:hover {
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(123, 44, 191, 0.3);
+        }
 
-            .search-bar {
-                width: 80px;
-                font-size: 12px;
-                padding: 6px 10px;
-            }
+        .nav-links a:hover::before {
+            left: 0;
+        }
 
-            .hamburger {
-                display: flex;
-                order: 2;
-            }
+        /* Enhanced Search Bar */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-            .cart-icon {
-                font-size: 20px;
-                order: 1;
-            }
+        .search-bar {
+            padding: 12px 20px;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.08), rgba(224, 170, 255, 0.08));
+            font-size: 14px;
+            width: 220px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+        }
 
-            /* Mobile Admin Panel Improvements */
+        .search-bar::placeholder {
+            color: var(--primary-purple);
+            opacity: 0.7;
+        }
+
+        .search-bar:focus {
+            background: var(--white);
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.1);
+            transform: translateY(-1px);
+            width: 260px;
+        }
+
+        .cart-icon {
+            font-size: 24px;
+            color: var(--primary-purple);
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 50%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .cart-icon:hover {
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+            color: var(--white);
+            transform: translateY(-2px) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(123, 44, 191, 0.3);
+        }            /* Mobile Admin Panel Improvements */
             .admin-login-form {
                 padding: 25px;
                 margin: 0 10px;
@@ -1555,14 +1601,17 @@
 <body>
     <!-- Top Bar -->
     <div class="top-bar">
-        🎁 Free Delivery on Orders Above ₹500 | 🎄 Festival Special Offers Available!
+        🎁 Free Delivery on Orders Above ₹500 | 📞 Call: +91 6305861922 | 🎄 Festival Special Offers!
     </div>
 
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">
-                <img src="image.png" alt="GiftsKraft by GK" class="logo-image">
+            <button class="back-button" id="backButton" onclick="goBack()" style="display: none;">
+                <span>←</span> Back
+            </button>
+            <div class="logo" onclick="showSection('home')">
+                <img src="gk logo.png" alt="GiftsKraft by GK" class="logo-image">
                 <div class="site-name">GiftsKraft</div>
             </div>
             
@@ -2284,20 +2333,54 @@
             window.open(whatsappUrl, '_blank');
         }
 
-        // Show section
+        // Enhanced Show Section Function
         function showSection(section) {
+            // Hide all sections
             document.querySelectorAll('.section').forEach(sec => {
                 sec.style.display = 'none';
             });
             
+            // Show selected section
             document.getElementById(section).style.display = 'block';
             
+            // Show/hide back button with animation
+            const backButton = document.getElementById('backButton');
+            if (section === 'home') {
+                backButton.classList.remove('show');
+                setTimeout(() => {
+                    backButton.style.display = 'none';
+                }, 300);
+            } else {
+                backButton.style.display = 'flex';
+                setTimeout(() => {
+                    backButton.classList.add('show');
+                }, 10);
+            }
+            
+            // Special section logic
             if (section === 'cart') {
                 displayCart();
             }
             
             // Close mobile menu
             document.getElementById('navLinks').classList.remove('active');
+            
+            // Store current section
+            window.currentSection = section;
+        }
+
+        // Go Back Function
+        function goBack() {
+            showSection('home');
+            
+            // Add bounce effect to logo
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    logo.style.transform = 'scale(1)';
+                }, 200);
+            }
         }
 
         // Toggle mobile menu
