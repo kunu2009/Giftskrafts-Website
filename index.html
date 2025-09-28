@@ -1555,6 +1555,9 @@
 
             .admin-content {
                 padding: 10px;
+                overflow-x: hidden;
+                max-width: 100vw;
+                box-sizing: border-box;
             }
 
             .admin-section {
@@ -1588,6 +1591,26 @@
             .admin-form .form-group textarea {
                 font-size: 14px;
                 padding: 8px;
+                width: 100%;
+                box-sizing: border-box;
+                max-width: 100%;
+            }
+
+            .prototype-card {
+                max-width: 100%;
+                overflow: hidden;
+                word-wrap: break-word;
+            }
+
+            .prototype-actions {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            .prototype-actions button {
+                font-size: 11px;
+                padding: 6px 8px;
+                white-space: nowrap;
             }
 
             .stats-grid {
@@ -2443,6 +2466,7 @@
                     <button class="btn btn-primary" onclick="generatePrototype()">🎨 Generate Prototype</button>
                     <button class="btn btn-secondary" onclick="previewPrototype()">👁️ Live Preview</button>
                     <button class="btn btn-whatsapp" onclick="exportPrototype()">📤 Export Code</button>
+                    <button class="btn" onclick="resetToDefault()" style="background: #ff6b35; color: white; border: 2px solid #ff6b35; margin-left: 10px;">🔄 Reset to Default</button>
                 </div>
                 
                 <div id="prototypePreview" style="display: none; background: var(--white); border-radius: 10px; padding: 20px; margin-top: 20px; border: 2px solid var(--primary-purple);">
@@ -2523,6 +2547,20 @@
                             <button class="btn btn-small" style="background: #00bcd4; color: white; padding: 6px 12px;" onclick="previewDarkDesign()">👁️ Preview</button>
                             <button class="btn btn-small" style="background: #0097a7; color: white; padding: 6px 12px;" onclick="applyDarkDesign()">✨ Apply</button>
                             <button class="btn btn-small" style="background: #006064; color: white; padding: 6px 12px;" onclick="customizeDarkDesign()">🎨 Customize</button>
+                        </div>
+                    </div>
+
+                    <!-- Mobile App Style -->
+                    <div class="prototype-card" style="background: linear-gradient(135deg, #f5f7fa, #c3cfe2); padding: 20px; border-radius: 12px; margin: 15px 0; border-left: 5px solid #667eea; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <h4>📱 Mobile App Style</h4>
+                        <p><strong>Mobile-First Design</strong> - Clean interface with bottom navigation and card-based layouts</p>
+                        <div style="background: rgba(102, 126, 234, 0.1); padding: 10px; border-radius: 6px; margin: 8px 0; font-size: 12px;">
+                            <strong>Features:</strong> Bottom navigation • Card layouts • Mobile-optimized • Clean UI • Smooth animations
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-small" style="background: #667eea; color: white; padding: 6px 12px;" onclick="previewMobileAppDesign()">👁️ Preview</button>
+                            <button class="btn btn-small" style="background: #5a67d8; color: white; padding: 6px 12px;" onclick="applyMobileAppDesign()">✨ Apply</button>
+                            <button class="btn btn-small" style="background: #4c51bf; color: white; padding: 6px 12px;" onclick="customizeMobileAppDesign()">🎨 Customize</button>
                         </div>
                     </div>
 
@@ -3869,6 +3907,338 @@
                 alert('🎮 Dark theme applied! Perfect for modern, tech-savvy customers.');
             }
         }
+
+        // Mobile App Style Design Functions
+        function previewMobileAppDesign() {
+            const previewWindow = window.open('', 'mobileapp-preview', 'width=375,height=667');
+            previewWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>📱 Mobile App - GiftKrafts</title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <style>
+                        * { margin: 0; padding: 0; box-sizing: border-box; }
+                        body { 
+                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+                            background: #f8f9fa; 
+                            padding-bottom: 80px;
+                            overflow-x: hidden;
+                        }
+                        
+                        /* Header */
+                        .header { 
+                            background: white; 
+                            padding: 15px 20px; 
+                            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                            position: sticky;
+                            top: 0;
+                            z-index: 100;
+                        }
+                        .header-content { display: flex; justify-content: space-between; align-items: center; }
+                        .logo { font-size: 20px; font-weight: 700; color: #667eea; }
+                        .profile-icon { width: 32px; height: 32px; background: #667eea; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+                        
+                        /* Search */
+                        .search-container { padding: 15px 20px; }
+                        .search-box { background: white; border-radius: 25px; padding: 12px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+                        .search-box input { border: none; outline: none; width: 100%; font-size: 16px; }
+                        
+                        /* Categories */
+                        .categories { padding: 20px; }
+                        .section-title { font-size: 20px; font-weight: 700; margin-bottom: 15px; color: #333; }
+                        .category-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+                        .category-card { 
+                            background: white; 
+                            padding: 20px; 
+                            border-radius: 15px; 
+                            text-align: center; 
+                            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                            transition: transform 0.2s;
+                        }
+                        .category-card:active { transform: scale(0.95); }
+                        .category-icon { font-size: 30px; margin-bottom: 10px; }
+                        .category-name { font-size: 14px; font-weight: 600; color: #666; }
+                        
+                        /* Products */
+                        .products { padding: 0 20px 20px; }
+                        .product-scroll { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px; }
+                        .product-card { 
+                            background: white; 
+                            border-radius: 15px; 
+                            min-width: 160px;
+                            overflow: hidden;
+                            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                        }
+                        .product-image { 
+                            height: 120px; 
+                            background: linear-gradient(135deg, #667eea, #764ba2); 
+                            display: flex; 
+                            align-items: center; 
+                            justify-content: center; 
+                            font-size: 35px; 
+                            color: white; 
+                        }
+                        .product-info { padding: 12px; }
+                        .product-name { font-size: 12px; font-weight: 600; margin-bottom: 5px; color: #333; }
+                        .product-price { font-size: 16px; font-weight: 700; color: #667eea; }
+                        
+                        /* Bottom Navigation */
+                        .bottom-nav { 
+                            position: fixed; 
+                            bottom: 0; 
+                            left: 0; 
+                            right: 0; 
+                            background: white; 
+                            padding: 10px 0; 
+                            box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
+                            display: flex;
+                            justify-content: space-around;
+                        }
+                        .nav-item { 
+                            display: flex; 
+                            flex-direction: column; 
+                            align-items: center; 
+                            padding: 8px; 
+                            color: #999; 
+                            font-size: 11px; 
+                            font-weight: 500;
+                        }
+                        .nav-item.active { color: #667eea; }
+                        .nav-icon { font-size: 20px; margin-bottom: 4px; }
+                        .cart-badge { 
+                            position: absolute; 
+                            top: -5px; 
+                            right: -5px; 
+                            background: #ff4757; 
+                            color: white; 
+                            border-radius: 50%; 
+                            width: 18px; 
+                            height: 18px; 
+                            display: flex; 
+                            align-items: center; 
+                            justify-content: center; 
+                            font-size: 10px; 
+                            font-weight: bold;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <div class="header-content">
+                            <div class="logo">🎁 GiftKrafts</div>
+                            <div class="profile-icon">S</div>
+                        </div>
+                    </div>
+                    
+                    <div class="search-container">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search gifts...">
+                        </div>
+                    </div>
+                    
+                    <div class="categories">
+                        <div class="section-title">Categories</div>
+                        <div class="category-grid">
+                            <div class="category-card">
+                                <div class="category-icon">💝</div>
+                                <div class="category-name">Valentine</div>
+                            </div>
+                            <div class="category-card">
+                                <div class="category-icon">🎂</div>
+                                <div class="category-name">Birthday</div>
+                            </div>
+                            <div class="category-card">
+                                <div class="category-icon">🎁</div>
+                                <div class="category-name">Gifts</div>
+                            </div>
+                            <div class="category-card">
+                                <div class="category-icon">🧸</div>
+                                <div class="category-name">Toys</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="products">
+                        <div class="section-title">Featured Products</div>
+                        <div class="product-scroll">
+                            <div class="product-card">
+                                <div class="product-image">💝</div>
+                                <div class="product-info">
+                                    <div class="product-name">Valentine Set</div>
+                                    <div class="product-price">₹899</div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image">🎂</div>
+                                <div class="product-info">
+                                    <div class="product-name">Birthday Box</div>
+                                    <div class="product-price">₹649</div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image">🧸</div>
+                                <div class="product-info">
+                                    <div class="product-name">Soft Toys</div>
+                                    <div class="product-price">₹499</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bottom-nav">
+                        <div class="nav-item active">
+                            <div class="nav-icon">🏠</div>
+                            <div>Home</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">🔍</div>
+                            <div>Search</div>
+                        </div>
+                        <div class="nav-item" style="position: relative;">
+                            <div class="nav-icon">🛒</div>
+                            <div>Cart</div>
+                            <div class="cart-badge">2</div>
+                        </div>
+                        <div class="nav-item">
+                            <div class="nav-icon">👤</div>
+                            <div>Profile</div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 30px 20px; margin-top: 20px;">
+                        <h3>📱 Mobile App Style Design</h3>
+                        <p>Clean mobile-first interface with bottom navigation</p>
+                        <button onclick="window.close()" style="background: #667eea; color: white; padding: 12px 24px; border: none; border-radius: 25px; margin-top: 15px; cursor: pointer;">Close Preview</button>
+                    </div>
+                </body>
+                </html>
+            `);
+        }
+
+        function applyMobileAppDesign() {
+            if (confirm('Apply Mobile App Style to your website? This will transform your site into a mobile-first interface.')) {
+                // Store current theme
+                localStorage.setItem('originalTheme', document.documentElement.className || 'default');
+                localStorage.setItem('currentTheme', 'mobile-app');
+                
+                // Apply mobile app styles
+                applyThemeStyles('mobile-app');
+                alert('📱 Mobile App design applied successfully! Your website now has a clean mobile-first interface.');
+            }
+        }
+
+        function customizeMobileAppDesign() {
+            document.getElementById('prototypeName').value = 'Mobile App Style Custom';
+            document.getElementById('prototypeLayout').value = 'mobile';
+            document.getElementById('prototypeTheme').value = 'clean';
+            document.getElementById('prototypeNav').value = 'bottom';
+            document.getElementById('prototypeProducts').value = 'cards';
+            document.getElementById('prototypeFeatures').value = 'Bottom navigation, card layouts, mobile-optimized, clean UI, smooth animations, app-style interface';
+            alert('📱 Mobile App design loaded in generator! Perfect for mobile-first experience.');
+        }
+
+        // Theme Application System
+        function applyThemeStyles(themeName) {
+            const root = document.documentElement;
+            
+            switch(themeName) {
+                case 'shopclues':
+                    root.style.setProperty('--primary-color', '#ff6b35');
+                    root.style.setProperty('--secondary-color', '#f7931e');
+                    root.style.setProperty('--accent-color', '#333');
+                    root.style.setProperty('--text-color', '#333');
+                    root.style.setProperty('--bg-color', '#f5f5f5');
+                    break;
+                case 'modern':
+                    root.style.setProperty('--primary-color', '#667eea');
+                    root.style.setProperty('--secondary-color', '#764ba2');
+                    root.style.setProperty('--accent-color', '#667eea');
+                    root.style.setProperty('--text-color', '#333');
+                    root.style.setProperty('--bg-color', 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)');
+                    break;
+                case 'mobile-app':
+                    root.style.setProperty('--primary-color', '#667eea');
+                    root.style.setProperty('--secondary-color', '#5a67d8');
+                    root.style.setProperty('--accent-color', '#4c51bf');
+                    root.style.setProperty('--text-color', '#333');
+                    root.style.setProperty('--bg-color', '#f8f9fa');
+                    break;
+                case 'dark':
+                    root.style.setProperty('--primary-color', '#00bcd4');
+                    root.style.setProperty('--secondary-color', '#0097a7');
+                    root.style.setProperty('--accent-color', '#006064');
+                    root.style.setProperty('--text-color', '#ffffff');
+                    root.style.setProperty('--bg-color', '#263238');
+                    break;
+                default:
+                    // Reset to default
+                    root.style.setProperty('--primary-purple', '#7b2cbf');
+                    root.style.setProperty('--secondary-pink', '#e0aaff');
+                    root.style.setProperty('--light-purple', '#f3e8ff');
+                    root.style.setProperty('--white', '#ffffff');
+                    break;
+            }
+        }
+
+        // Reset to Default Function
+        function resetToDefault() {
+            if (confirm('Reset to the original default theme? This will restore your website to the original purple/pink design.')) {
+                // Clear stored theme
+                localStorage.removeItem('currentTheme');
+                
+                // Reset CSS custom properties
+                const root = document.documentElement;
+                root.style.removeProperty('--primary-color');
+                root.style.removeProperty('--secondary-color');
+                root.style.removeProperty('--accent-color');
+                root.style.removeProperty('--text-color');
+                root.style.removeProperty('--bg-color');
+                
+                // Remove any applied theme classes
+                document.body.className = document.body.className.replace(/theme-\\w+/g, '');
+                
+                alert('🔄 Reset successful! Your website is back to the original default theme.');
+                
+                // Reload page to ensure all changes are applied
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+            }
+        }
+
+        // Enhanced Apply Functions for Existing Designs
+        function applyShopCluesDesign() {
+            if (confirm('Apply ShopClues Marketplace design to your website? This will change the current layout.')) {
+                localStorage.setItem('currentTheme', 'shopclues');
+                applyThemeStyles('shopclues');
+                alert('✨ ShopClues design applied successfully! Your website now has the marketplace layout with category navigation, deal sections, and orange/red theme.');
+            }
+        }
+
+        function applyModernDesign() {
+            if (confirm('Apply Modern Marketplace design to your website?')) {
+                localStorage.setItem('currentTheme', 'modern');
+                applyThemeStyles('modern');
+                alert('✨ Modern design applied! Your website now has a sleek, app-inspired interface with gradient themes.');
+            }
+        }
+
+        function applyDarkDesign() {
+            if (confirm('Apply Dark Marketplace design?')) {
+                localStorage.setItem('currentTheme', 'dark');
+                applyThemeStyles('dark');
+                alert('🎮 Dark theme applied! Perfect for modern, tech-savvy customers.');
+            }
+        }
+
+        // Load saved theme on page load
+        window.addEventListener('load', function() {
+            const savedTheme = localStorage.getItem('currentTheme');
+            if (savedTheme && savedTheme !== 'default') {
+                applyThemeStyles(savedTheme);
+            }
+        });
 
         // Enhanced Product Management with Firebase
         async function loadProductsFromFirebase() {
