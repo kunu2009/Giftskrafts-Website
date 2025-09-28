@@ -1572,9 +1572,12 @@
             }
 
             .admin-form {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
                 gap: 15px;
                 margin-bottom: 20px;
+                width: 100%;
+                box-sizing: border-box;
             }
 
             .admin-form .form-group {
@@ -1611,6 +1614,27 @@
                 font-size: 11px;
                 padding: 6px 8px;
                 white-space: nowrap;
+            }
+            
+            /* Better mobile admin table responsiveness */
+            .admin-section table {
+                width: 100%;
+                font-size: 11px;
+                border-collapse: collapse;
+            }
+            
+            .admin-section table th,
+            .admin-section table td {
+                padding: 4px;
+                text-align: left;
+                border: 1px solid #ddd;
+                word-wrap: break-word;
+                max-width: 100px;
+            }
+            
+            .admin-section .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
             }
 
             .stats-grid {
@@ -1985,7 +2009,7 @@
                 
                 <div class="cta-buttons">
                     <button class="btn btn-primary" onclick="showSection('shop')">Shop Now</button>
-                    <a href="https://wa.me/919999999999?text=Hi! I want to order from Giftskrafts" class="btn btn-whatsapp">Order on WhatsApp</a>
+                    <a href="https://wa.me/916305861922?text=Hi! I want to order from Giftskrafts" class="btn btn-whatsapp">Order on WhatsApp</a>
                 </div>
             </div>
         </section>
@@ -2136,7 +2160,7 @@
                     👍 <span>Facebook: Giftskrafts by GK</span>
                 </div>
                 <div class="contact-item">
-                    💬 <span>WhatsApp: +91 99999 99999</span>
+                    💬 <span>WhatsApp: +91 63058 61922</span>
                 </div>
                 <div class="contact-item">
                     📍 <span>Address: 123 Gift Street, Mumbai, Maharashtra 400001</span>
@@ -2204,7 +2228,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <div class="whatsapp-float" onclick="window.open('https://wa.me/919999999999?text=Hi! I need help with my order', '_blank')">
+    <div class="whatsapp-float" onclick="window.open('https://wa.me/916305861922?text=Hi! I need help with my order', '_blank')">
         💬
     </div>
 
@@ -2587,7 +2611,7 @@
                     </div>
                     <div class="form-group">
                         <label>WhatsApp Number:</label>
-                        <input type="text" id="whatsappNumber" value="919999999999">
+                        <input type="text" id="whatsappNumber" value="916305861922">
                     </div>
                     <div class="form-group">
                         <label>Free Delivery Above (₹):</label>
@@ -4122,9 +4146,9 @@
                 localStorage.setItem('originalTheme', document.documentElement.className || 'default');
                 localStorage.setItem('currentTheme', 'mobile-app');
                 
-                // Apply mobile app styles
-                applyThemeStyles('mobile-app');
-                alert('📱 Mobile App design applied successfully! Your website now has a clean mobile-first interface.');
+                // Apply mobile app theme with full functionality
+                applyFullTheme('mobile-app');
+                alert('📱 Mobile App design applied successfully! Your website now has a clean mobile-first interface with all features intact.');
             }
         }
 
@@ -4205,6 +4229,170 @@
                     location.reload();
                 }, 1000);
             }
+        }
+
+        // Enhanced Apply Functions for Existing Designs
+        function applyShopCluesDesign() {
+            if (confirm('Apply ShopClues Marketplace design to your website? This will change the current layout.')) {
+                localStorage.setItem('currentTheme', 'shopclues');
+                applyFullTheme('shopclues');
+                alert('✨ ShopClues design applied successfully! Your website now has the marketplace layout with category navigation, deal sections, and orange/red theme.');
+            }
+        }
+
+        function applyModernDesign() {
+            if (confirm('Apply Modern Marketplace design to your website?')) {
+                localStorage.setItem('currentTheme', 'modern');
+                applyFullTheme('modern');
+                alert('✨ Modern design applied! Your website now has a sleek, app-inspired interface with gradient themes.');
+            }
+        }
+
+        function applyDarkDesign() {
+            if (confirm('Apply Dark Marketplace design?')) {
+                localStorage.setItem('currentTheme', 'dark');
+                applyFullTheme('dark');
+                alert('🎮 Dark theme applied! Perfect for modern, tech-savvy customers.');
+            }
+        }
+
+        function applyFestiveDesign() {
+            if (confirm('Apply Festive Bazaar design?')) {
+                localStorage.setItem('currentTheme', 'festive');
+                applyFullTheme('festive');
+                alert('🎊 Festive design applied! Your website is now ready for festival seasons.');
+            }
+        }
+
+        function applyBoutiqueDesign() {
+            if (confirm('Apply Elegant Boutique design?')) {
+                localStorage.setItem('currentTheme', 'boutique');
+                applyFullTheme('boutique');
+                alert('🌸 Boutique design applied! Your site now has a premium, luxury feel.');
+            }
+        }
+
+        // Full Theme Application System
+        function applyFullTheme(themeName) {
+            const root = document.documentElement;
+            
+            // Remove all existing theme classes
+            document.body.className = document.body.className.replace(/theme-\\w+/g, '');
+            
+            switch(themeName) {
+                case 'shopclues':
+                    document.body.classList.add('theme-shopclues');
+                    root.style.setProperty('--primary-purple', '#ff6b35');
+                    root.style.setProperty('--secondary-pink', '#f7931e');
+                    root.style.setProperty('--light-purple', '#fff5f2');
+                    root.style.setProperty('--white', '#ffffff');
+                    updatePageElements('shopclues');
+                    break;
+                case 'modern':
+                    document.body.classList.add('theme-modern');
+                    root.style.setProperty('--primary-purple', '#667eea');
+                    root.style.setProperty('--secondary-pink', '#764ba2');
+                    root.style.setProperty('--light-purple', '#f0f3ff');
+                    root.style.setProperty('--white', '#ffffff');
+                    document.body.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                    updatePageElements('modern');
+                    break;
+                case 'mobile-app':
+                    document.body.classList.add('theme-mobile-app');
+                    root.style.setProperty('--primary-purple', '#667eea');
+                    root.style.setProperty('--secondary-pink', '#5a67d8');
+                    root.style.setProperty('--light-purple', '#f8f9fa');
+                    root.style.setProperty('--white', '#ffffff');
+                    document.body.style.background = '#f8f9fa';
+                    updatePageElements('mobile-app');
+                    break;
+                case 'dark':
+                    document.body.classList.add('theme-dark');
+                    root.style.setProperty('--primary-purple', '#00bcd4');
+                    root.style.setProperty('--secondary-pink', '#0097a7');
+                    root.style.setProperty('--light-purple', '#37474f');
+                    root.style.setProperty('--white', '#263238');
+                    document.body.style.background = '#263238';
+                    document.body.style.color = '#ffffff';
+                    updatePageElements('dark');
+                    break;
+                case 'festive':
+                    document.body.classList.add('theme-festive');
+                    root.style.setProperty('--primary-purple', '#ff9800');
+                    root.style.setProperty('--secondary-pink', '#ffb74d');
+                    root.style.setProperty('--light-purple', '#fff8e1');
+                    root.style.setProperty('--white', '#ffffff');
+                    updatePageElements('festive');
+                    break;
+                case 'boutique':
+                    document.body.classList.add('theme-boutique');
+                    root.style.setProperty('--primary-purple', '#e91e63');
+                    root.style.setProperty('--secondary-pink', '#f8bbd9');
+                    root.style.setProperty('--light-purple', '#fce4ec');
+                    root.style.setProperty('--white', '#ffffff');
+                    updatePageElements('boutique');
+                    break;
+                default:
+                    // Reset to default
+                    document.body.style.background = '';
+                    document.body.style.color = '';
+                    root.style.setProperty('--primary-purple', '#7b2cbf');
+                    root.style.setProperty('--secondary-pink', '#e0aaff');
+                    root.style.setProperty('--light-purple', '#f3e8ff');
+                    root.style.setProperty('--white', '#ffffff');
+                    updatePageElements('default');
+                    break;
+            }
+        }
+
+        // Update page elements for full theme compatibility
+        function updatePageElements(theme) {
+            // Update all buttons to match theme
+            const buttons = document.querySelectorAll('.btn-primary');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const productCards = document.querySelectorAll('.product-card');
+            
+            buttons.forEach(btn => {
+                btn.style.background = `var(--primary-purple)`;
+                btn.style.borderColor = `var(--primary-purple)`;
+            });
+            
+            // Update product cards background
+            productCards.forEach(card => {
+                if (theme === 'dark') {
+                    card.style.background = 'var(--white)';
+                    card.style.color = '#333';
+                } else {
+                    card.style.background = 'var(--white)';
+                    card.style.color = '#333';
+                }
+            });
+            
+            // Update navigation
+            const header = document.querySelector('.header');
+            if (header) {
+                if (theme === 'dark') {
+                    header.style.background = 'var(--white)';
+                } else {
+                    header.style.background = 'var(--white)';
+                }
+            }
+            
+            // Update WhatsApp number in orderViaWhatsApp function
+            updateWhatsAppNumber();
+        }
+
+        // Update WhatsApp number function
+        function updateWhatsAppNumber() {
+            window.whatsappNumber = '916305861922';
+        }
+
+        // Order via WhatsApp with updated number
+        function orderViaWhatsApp(productName, price) {
+            const whatsappNumber = '916305861922'; // Updated number
+            const message = `Hi! I want to order: ${productName} - ₹${price} from GiftKrafts`;
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
         // Enhanced Apply Functions for Existing Designs
