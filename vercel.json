@@ -32,11 +32,6 @@
       ]
     }
   ],
-  "functions": {
-    "index.html": {
-      "includeFiles": "**"
-    }
-  },
   "cleanUrls": true,
   "trailingSlash": false
 }
