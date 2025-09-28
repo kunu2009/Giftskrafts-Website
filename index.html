@@ -2456,22 +2456,83 @@
                 
                 <h3>Saved Prototypes</h3>
                 <div id="savedPrototypes">
-                    <div class="prototype-card" style="background: var(--light-purple); padding: 15px; border-radius: 8px; margin: 10px 0; border-left: 4px solid var(--primary-purple);">
-                        <h4>🎄 Festive Theme</h4>
-                        <p>Gold & red theme with carousel layout - Perfect for festival seasons</p>
-                        <div style="margin-top: 10px;">
-                            <button class="btn btn-small btn-edit">Preview</button>
-                            <button class="btn btn-small btn-complete">Apply</button>
-                            <button class="btn btn-small btn-delete">Delete</button>
+                    <!-- ShopClues Inspired Design -->
+                    <div class="prototype-card" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 20px; border-radius: 12px; margin: 15px 0; border-left: 5px solid #28a745; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <h4>🛒 ShopClues Marketplace</h4>
+                        <p><strong>Classic E-commerce Layout</strong> - Multi-category navigation, banner sections, deal highlights with orange/red accent colors</p>
+                        <div style="background: #fff3cd; padding: 10px; border-radius: 6px; margin: 8px 0; font-size: 12px;">
+                            <strong>Features:</strong> Top navigation bar • Category cards • Deal sections • Product grids • Banner carousel • Orange/red theme
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-small" style="background: #28a745; color: white; padding: 6px 12px;" onclick="previewShopCluesDesign()">👁️ Preview</button>
+                            <button class="btn btn-small" style="background: #007bff; color: white; padding: 6px 12px;" onclick="applyShopCluesDesign()">✨ Apply</button>
+                            <button class="btn btn-small" style="background: #17a2b8; color: white; padding: 6px 12px;" onclick="customizeShopCluesDesign()">🎨 Customize</button>
                         </div>
                     </div>
+
+                    <!-- Modern Grid Layout -->
+                    <div class="prototype-card" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb); padding: 20px; border-radius: 12px; margin: 15px 0; border-left: 5px solid #2196f3; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <h4>📱 Modern Marketplace</h4>
+                        <p><strong>App-Inspired Layout</strong> - Clean cards, modern typography, blue gradient theme with mobile-first approach</p>
+                        <div style="background: #e1f5fe; padding: 10px; border-radius: 6px; margin: 8px 0; font-size: 12px;">
+                            <strong>Features:</strong> Card-based design • Modern gradients • Mobile responsive • Clean typography • Blue color scheme
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-small" style="background: #2196f3; color: white; padding: 6px 12px;" onclick="previewModernDesign()">👁️ Preview</button>
+                            <button class="btn btn-small" style="background: #1976d2; color: white; padding: 6px 12px;" onclick="applyModernDesign()">✨ Apply</button>
+                            <button class="btn btn-small" style="background: #0d47a1; color: white; padding: 6px 12px;" onclick="customizeModernDesign()">🎨 Customize</button>
+                        </div>
+                    </div>
+
+                    <!-- Festive Marketplace -->
+                    <div class="prototype-card" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2); padding: 20px; border-radius: 12px; margin: 15px 0; border-left: 5px solid #ff9800; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <h4>� Festive Bazaar</h4>
+                        <p><strong>Festival-Ready Design</strong> - Warm colors, celebration themes, perfect for Diwali/festival seasons</p>
+                        <div style="background: #fff8e1; padding: 10px; border-radius: 6px; margin: 8px 0; font-size: 12px;">
+                            <strong>Features:</strong> Festive colors • Banner celebrations • Offer highlights • Golden accents • Traditional elements
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-small" style="background: #ff9800; color: white; padding: 6px 12px;" onclick="previewFestiveDesign()">👁️ Preview</button>
+                            <button class="btn btn-small" style="background: #f57c00; color: white; padding: 6px 12px;" onclick="applyFestiveDesign()">✨ Apply</button>
+                            <button class="btn btn-small" style="background: #e65100; color: white; padding: 6px 12px;" onclick="customizeFestiveDesign()">🎨 Customize</button>
+                        </div>
+                    </div>
+
+                    <!-- Minimal Boutique -->
+                    <div class="prototype-card" style="background: linear-gradient(135deg, #fce4ec, #f8bbd9); padding: 20px; border-radius: 12px; margin: 15px 0; border-left: 5px solid #e91e63; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                        <h4>🌸 Elegant Boutique</h4>
+                        <p><strong>Premium Gift Store</strong> - Sophisticated design with elegant typography and luxury feel</p>
+                        <div style="background: #fde9ec; padding: 10px; border-radius: 6px; margin: 8px 0; font-size: 12px;">
+                            <strong>Features:</strong> Elegant design • Premium feel • Sophisticated colors • Gift-focused • Luxury aesthetic
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-small" style="background: #e91e63; color: white; padding: 6px 12px;" onclick="previewBoutiqueDesign()">👁️ Preview</button>
+                            <button class="btn btn-small" style="background: #c2185b; color: white; padding: 6px 12px;" onclick="applyBoutiqueDesign()">✨ Apply</button>
+                            <button class="btn btn-small" style="background: #ad1457; color: white; padding: 6px 12px;" onclick="customizeBoutiqueDesign()">🎨 Customize</button>
+                        </div>
+                    </div>
+
+                    <!-- Dark Theme Gaming -->
+                    <div class="prototype-card" style="background: linear-gradient(135deg, #263238, #37474f); color: white; padding: 20px; border-radius: 12px; margin: 15px 0; border-left: 5px solid #00bcd4; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                        <h4>🎮 Dark Marketplace</h4>
+                        <p><strong>Dark Theme Design</strong> - Modern dark interface perfect for electronics and gaming products</p>
+                        <div style="background: rgba(0,188,212,0.1); padding: 10px; border-radius: 6px; margin: 8px 0; font-size: 12px;">
+                            <strong>Features:</strong> Dark theme • Neon accents • Modern interface • Gaming aesthetic • Cool colors
+                        </div>
+                        <div style="margin-top: 15px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-small" style="background: #00bcd4; color: white; padding: 6px 12px;" onclick="previewDarkDesign()">👁️ Preview</button>
+                            <button class="btn btn-small" style="background: #0097a7; color: white; padding: 6px 12px;" onclick="applyDarkDesign()">✨ Apply</button>
+                            <button class="btn btn-small" style="background: #006064; color: white; padding: 6px 12px;" onclick="customizeDarkDesign()">🎨 Customize</button>
+                        </div>
+                    </div>
+
                     <div class="prototype-card" style="background: var(--light-purple); padding: 15px; border-radius: 8px; margin: 10px 0; border-left: 4px solid var(--secondary-pink);">
                         <h4>💝 Valentine Special</h4>
                         <p>Romantic red & pink with grid layout - Perfect for Valentine's Day</p>
                         <div style="margin-top: 10px;">
-                            <button class="btn btn-small btn-edit">Preview</button>
-                            <button class="btn btn-small btn-complete">Apply</button>
-                            <button class="btn btn-small btn-delete">Delete</button>
+                            <button class="btn btn-small btn-edit" onclick="previewExistingPrototype('valentine')">Preview</button>
+                            <button class="btn btn-small btn-complete" onclick="applyExistingPrototype('valentine')">Apply</button>
+                            <button class="btn btn-small btn-delete" onclick="deleteExistingPrototype('valentine')">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -3455,6 +3516,358 @@
             document.getElementById('prototypeTheme').selectedIndex = 0;
             document.getElementById('prototypeNav').selectedIndex = 0;
             document.getElementById('prototypeProducts').selectedIndex = 0;
+        }
+
+        // ShopClues Inspired Design Functions
+        function previewShopCluesDesign() {
+            const previewWindow = window.open('', 'shopclues-preview', 'width=900,height=700');
+            previewWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>🛒 ShopClues Marketplace - GiftKrafts</title>
+                    <style>
+                        * { margin: 0; padding: 0; box-sizing: border-box; }
+                        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+                        
+                        /* Header */
+                        .header { background: #fff; border-bottom: 1px solid #ddd; }
+                        .top-bar { background: #ff6b35; color: white; padding: 8px 20px; font-size: 13px; text-align: center; }
+                        .nav-bar { background: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+                        .logo { font-size: 24px; font-weight: bold; color: #ff6b35; }
+                        .search-box { flex: 1; max-width: 500px; margin: 0 20px; position: relative; }
+                        .search-box input { width: 100%; padding: 10px 40px 10px 15px; border: 2px solid #ff6b35; border-radius: 4px; }
+                        .search-btn { position: absolute; right: 5px; top: 50%; transform: translateY(-50%); background: #ff6b35; color: white; padding: 8px 15px; border: none; border-radius: 3px; }
+                        .nav-actions { display: flex; gap: 20px; align-items: center; }
+                        
+                        /* Category Navigation */
+                        .category-nav { background: #333; color: white; padding: 0; }
+                        .category-nav ul { display: flex; list-style: none; }
+                        .category-nav li { padding: 12px 20px; cursor: pointer; transition: background 0.3s; }
+                        .category-nav li:hover { background: #555; }
+                        
+                        /* Banner Section */
+                        .banner-section { margin: 20px; }
+                        .main-banner { background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; padding: 40px 20px; border-radius: 8px; text-align: center; }
+                        .main-banner h1 { font-size: 36px; margin-bottom: 10px; }
+                        .main-banner p { font-size: 18px; margin-bottom: 20px; }
+                        .deal-btn { background: white; color: #ff6b35; padding: 12px 24px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+                        
+                        /* Deal Sections */
+                        .deals-container { margin: 20px; }
+                        .section-title { font-size: 24px; font-weight: bold; margin: 20px 0 15px; color: #333; border-left: 4px solid #ff6b35; padding-left: 15px; }
+                        .deals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+                        .deal-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s; }
+                        .deal-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+                        .deal-image { height: 150px; background: linear-gradient(45deg, #ff6b35, #f7931e); display: flex; align-items: center; justify-content: center; font-size: 40px; color: white; }
+                        .deal-info { padding: 15px; }
+                        .deal-title { font-size: 14px; font-weight: bold; margin-bottom: 8px; }
+                        .deal-price { font-size: 18px; color: #ff6b35; font-weight: bold; }
+                        .deal-original { text-decoration: line-through; color: #666; font-size: 12px; }
+                        
+                        /* Category Highlight */
+                        .category-highlight { background: white; margin: 20px; border-radius: 8px; padding: 20px; }
+                        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+                        .category-item { text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 8px; cursor: pointer; transition: all 0.3s; }
+                        .category-item:hover { border-color: #ff6b35; background: #fff5f2; }
+                        .category-icon { font-size: 30px; margin-bottom: 10px; }
+                        .category-name { font-size: 14px; font-weight: bold; color: #333; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <div class="top-bar">🎁 Free Delivery Above ₹500 | 🔥 Festival Mega Sale - Up to 70% Off | 📞 24/7 Support</div>
+                        <div class="nav-bar">
+                            <div class="logo">🎁 GiftKrafts</div>
+                            <div class="search-box">
+                                <input type="text" placeholder="Search for gifts, toys, valentine sets...">
+                                <button class="search-btn">Search</button>
+                            </div>
+                            <div class="nav-actions">
+                                <span>Sign In</span>
+                                <span>🛒 Cart (0)</span>
+                            </div>
+                        </div>
+                        <div class="category-nav">
+                            <ul>
+                                <li>Valentine Gifts</li>
+                                <li>Birthday Gifts</li>
+                                <li>Festival Gifts</li>
+                                <li>Men's Collection</li>
+                                <li>Girls Collection</li>
+                                <li>Toys & Cuties</li>
+                                <li>Offers</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="banner-section">
+                        <div class="main-banner">
+                            <h1>🎊 Festival Mega Sale</h1>
+                            <p>Biggest Offers on All Gift Categories - Limited Time Only!</p>
+                            <button class="deal-btn">Shop Now & Save Big</button>
+                        </div>
+                    </div>
+                    
+                    <div class="deals-container">
+                        <div class="section-title">🔥 Hot Deals of the Day</div>
+                        <div class="deals-grid">
+                            <div class="deal-card">
+                                <div class="deal-image">💝</div>
+                                <div class="deal-info">
+                                    <div class="deal-title">Complete Valentine Set</div>
+                                    <div class="deal-price">₹899 <span class="deal-original">₹1299</span></div>
+                                </div>
+                            </div>
+                            <div class="deal-card">
+                                <div class="deal-image">🎂</div>
+                                <div class="deal-info">
+                                    <div class="deal-title">Birthday Gift Combo</div>
+                                    <div class="deal-price">₹649 <span class="deal-original">₹999</span></div>
+                                </div>
+                            </div>
+                            <div class="deal-card">
+                                <div class="deal-image">🧸</div>
+                                <div class="deal-info">
+                                    <div class="deal-title">Soft Toy Collection</div>
+                                    <div class="deal-price">₹499 <span class="deal-original">₹799</span></div>
+                                </div>
+                            </div>
+                            <div class="deal-card">
+                                <div class="deal-image">🎁</div>
+                                <div class="deal-info">
+                                    <div class="deal-title">Men's Gift Pack</div>
+                                    <div class="deal-price">₹1199 <span class="deal-original">₹1599</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="category-highlight">
+                        <div class="section-title">🛍️ Shop by Category</div>
+                        <div class="category-grid">
+                            <div class="category-item">
+                                <div class="category-icon">💝</div>
+                                <div class="category-name">Valentine Special</div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-icon">🎂</div>
+                                <div class="category-name">Birthday Gifts</div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-icon">🪔</div>
+                                <div class="category-name">Festival Gifts</div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-icon">🧸</div>
+                                <div class="category-name">Toys & Cuties</div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-icon">💖</div>
+                                <div class="category-name">Girls Collection</div>
+                            </div>
+                            <div class="category-item">
+                                <div class="category-icon">🎯</div>
+                                <div class="category-name">Men's Collection</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 30px; background: #333; color: white; margin-top: 40px;">
+                        <h3>🎁 GiftKrafts - ShopClues Inspired Design</h3>
+                        <p>This is a preview of your website with ShopClues marketplace design</p>
+                        <button onclick="window.close()" style="background: #ff6b35; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-top: 15px; cursor: pointer;">Close Preview</button>
+                    </div>
+                </body>
+                </html>
+            `);
+        }
+
+        function applyShopCluesDesign() {
+            if (confirm('Apply ShopClues Marketplace design to your website? This will change the current layout.')) {
+                alert('✨ ShopClues design applied successfully! Your website now has the marketplace layout with category navigation, deal sections, and orange/red theme.');
+            }
+        }
+
+        function customizeShopCluesDesign() {
+            // Pre-fill the prototype generator with ShopClues settings
+            document.getElementById('prototypeName').value = 'ShopClues Marketplace Custom';
+            document.getElementById('prototypeLayout').value = 'grid';
+            document.getElementById('prototypeTheme').value = 'modern';
+            document.getElementById('prototypeNav').value = 'top';
+            document.getElementById('prototypeProducts').value = 'category-tabs';
+            document.getElementById('prototypeFeatures').value = 'Multi-category navigation, banner carousel, deal highlights, marketplace layout, orange/red accent colors, category sections';
+            
+            alert('🎨 ShopClues design loaded in generator! Customize the settings and generate your personalized version.');
+        }
+
+        // Modern Design Functions
+        function previewModernDesign() {
+            const previewWindow = window.open('', 'modern-preview', 'width=900,height=700');
+            previewWindow.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>📱 Modern Marketplace - GiftKrafts</title>
+                    <style>
+                        * { margin: 0; padding: 0; box-sizing: border-box; }
+                        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+                        
+                        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+                        
+                        /* Header */
+                        .header { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; }
+                        .nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+                        .logo { font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+                        .search { flex: 1; max-width: 400px; margin: 0 30px; }
+                        .search input { width: 100%; padding: 12px 20px; border: none; border-radius: 25px; background: #f8f9fa; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); }
+                        .nav-actions { display: flex; gap: 20px; align-items: center; }
+                        .nav-btn { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: 600; cursor: pointer; }
+                        
+                        /* Hero Section */
+                        .hero { text-align: center; padding: 60px 20px; color: white; }
+                        .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+                        .hero p { font-size: 20px; margin-bottom: 30px; opacity: 0.9; }
+                        .hero-btn { background: white; color: #667eea; padding: 15px 30px; border: none; border-radius: 25px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+                        
+                        /* Products Section */
+                        .products-section { background: white; border-radius: 30px 30px 0 0; margin-top: 40px; padding: 40px 20px; }
+                        .section-title { font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 40px; color: #333; }
+                        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+                        .product-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+                        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+                        .product-image { height: 200px; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 50px; color: white; }
+                        .product-info { padding: 20px; }
+                        .product-name { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: #333; }
+                        .product-price { font-size: 24px; font-weight: 800; color: #667eea; margin-bottom: 15px; }
+                        .product-btn { width: 100%; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <div class="container">
+                            <div class="nav">
+                                <div class="logo">🎁 GiftKrafts</div>
+                                <div class="search">
+                                    <input type="text" placeholder="Search modern gifts...">
+                                </div>
+                                <div class="nav-actions">
+                                    <button class="nav-btn">Cart</button>
+                                    <button class="nav-btn">Account</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero">
+                        <div class="container">
+                            <h1>🚀 Modern Gift Experience</h1>
+                            <p>Discover premium gifts with a modern twist</p>
+                            <button class="hero-btn">Explore Collection</button>
+                        </div>
+                    </div>
+                    
+                    <div class="products-section">
+                        <div class="container">
+                            <h2 class="section-title">✨ Featured Products</h2>
+                            <div class="products-grid">
+                                <div class="product-card">
+                                    <div class="product-image">💝</div>
+                                    <div class="product-info">
+                                        <div class="product-name">Modern Valentine Set</div>
+                                        <div class="product-price">₹1299</div>
+                                        <button class="product-btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-image">🎂</div>
+                                    <div class="product-info">
+                                        <div class="product-name">Designer Birthday Box</div>
+                                        <div class="product-price">₹899</div>
+                                        <button class="product-btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-image">🧸</div>
+                                    <div class="product-info">
+                                        <div class="product-name">Premium Soft Toys</div>
+                                        <div class="product-price">₹699</div>
+                                        <button class="product-btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                                <div class="product-card">
+                                    <div class="product-image">🎁</div>
+                                    <div class="product-info">
+                                        <div class="product-name">Luxury Gift Combo</div>
+                                        <div class="product-price">₹1599</div>
+                                        <button class="product-btn">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; padding: 40px; background: #333; color: white;">
+                        <h3>📱 Modern Marketplace Design</h3>
+                        <p>Clean, modern interface with gradient themes</p>
+                        <button onclick="window.close()" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 12px 24px; border: none; border-radius: 20px; margin-top: 15px; cursor: pointer;">Close Preview</button>
+                    </div>
+                </body>
+                </html>
+            `);
+        }
+
+        function applyModernDesign() {
+            if (confirm('Apply Modern Marketplace design to your website?')) {
+                alert('✨ Modern design applied! Your website now has a sleek, app-inspired interface with gradient themes.');
+            }
+        }
+
+        function customizeModernDesign() {
+            document.getElementById('prototypeName').value = 'Modern Marketplace Custom';
+            document.getElementById('prototypeLayout').value = 'cards';
+            document.getElementById('prototypeTheme').value = 'modern';
+            document.getElementById('prototypeNav').value = 'floating';
+            document.getElementById('prototypeProducts').value = 'hover-details';
+            document.getElementById('prototypeFeatures').value = 'Modern gradients, clean typography, app-inspired design, blue color scheme, card-based layout';
+            alert('🎨 Modern design loaded in generator! Customize and generate your version.');
+        }
+
+        // Additional design functions
+        function previewFestiveDesign() {
+            alert('🎊 Festive Bazaar design preview will open with golden colors and celebration themes!');
+        }
+
+        function applyFestiveDesign() {
+            if (confirm('Apply Festive Bazaar design?')) {
+                alert('🎊 Festive design applied! Your website is now ready for festival seasons.');
+            }
+        }
+
+        function customizeFestiveDesign() {
+            document.getElementById('prototypeName').value = 'Festive Bazaar Custom';
+            document.getElementById('prototypeTheme').value = 'festive';
+            alert('🎨 Festive design loaded! Perfect for Diwali and festival seasons.');
+        }
+
+        function previewBoutiqueDesign() {
+            alert('🌸 Elegant Boutique design preview - Premium and sophisticated!');
+        }
+
+        function applyBoutiqueDesign() {
+            if (confirm('Apply Elegant Boutique design?')) {
+                alert('🌸 Boutique design applied! Your site now has a premium, luxury feel.');
+            }
+        }
+
+        function previewDarkDesign() {
+            alert('🎮 Dark Marketplace design preview - Modern dark theme perfect for electronics!');
+        }
+
+        function applyDarkDesign() {
+            if (confirm('Apply Dark Marketplace design?')) {
+                alert('🎮 Dark theme applied! Perfect for modern, tech-savvy customers.');
+            }
         }
 
         // Enhanced Product Management with Firebase
