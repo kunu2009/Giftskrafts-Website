@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://giftskrafts-gk.vercel.app/sitemap.xml
+
+# Disallow admin paths from search engines
+User-agent: *
+Disallow: /admin/

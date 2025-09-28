@@ -1,0 +1,26 @@
+{
+  "name": "giftskrafts-by-gk",
+  "version": "1.0.0",
+  "description": "Premium gifts and crafts ecommerce website by Giftskrafts GK",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server",
+    "build": "echo 'Static site - no build needed'",
+    "start": "echo 'Static site deployed'"
+  },
+  "keywords": [
+    "gifts",
+    "ecommerce",
+    "valentine gifts",
+    "birthday gifts",
+    "festival gifts",
+    "online store"
+  ],
+  "author": "Giftskrafts by GK",
+  "license": "MIT",
+  "homepage": "https://giftskrafts-gk.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/giftskrafts-gk.git"
+  }
+}

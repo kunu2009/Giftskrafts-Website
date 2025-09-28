@@ -1,0 +1,2950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Giftskrafts by GK - Premium Gifts & Crafts | Valentine, Birthday & Festival Gifts</title>
+    <meta name="title" content="Giftskrafts by GK - Premium Gifts & Crafts | Valentine, Birthday & Festival Gifts">
+    <meta name="description" content="Discover unique and personalized gifts at Giftskrafts by GK. Perfect Valentine sets, birthday gifts, festival hampers, toys for kids, and men's gift combos. Free delivery on orders above ₹500.">
+    <meta name="keywords" content="gifts, valentine gifts, birthday gifts, festival gifts, toys, men's gifts, girls gifts, gift hampers, personalized gifts, online gift shop, India">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Giftskrafts by GK">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://giftskrafts-gk.vercel.app/">
+    <meta property="og:title" content="Giftskrafts by GK - Premium Gifts & Crafts">
+    <meta property="og:description" content="Discover unique and personalized gifts for every occasion. Valentine sets, birthday gifts, festival hampers & more. Free delivery on orders above ₹500.">
+    <meta property="og:image" content="https://giftskrafts-gk.vercel.app/image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Giftskrafts by GK">
+    <meta property="og:locale" content="en_IN">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://giftskrafts-gk.vercel.app/">
+    <meta property="twitter:title" content="Giftskrafts by GK - Premium Gifts & Crafts">
+    <meta property="twitter:description" content="Discover unique and personalized gifts for every occasion. Valentine sets, birthday gifts, festival hampers & more.">
+    <meta property="twitter:image" content="https://giftskrafts-gk.vercel.app/image.png">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#7b2cbf">
+    <meta name="msapplication-TileColor" content="#7b2cbf">
+    <meta name="application-name" content="Giftskrafts by GK">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://giftskrafts-gk.vercel.app/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Giftskrafts by GK",
+      "description": "Premium gifts and crafts store offering Valentine gifts, birthday presents, festival hampers, toys, and personalized gift items.",
+      "url": "https://giftskrafts-gk.vercel.app/",
+      "logo": "https://giftskrafts-gk.vercel.app/image.png",
+      "image": "https://giftskrafts-gk.vercel.app/image.png",
+      "telephone": "+91-9999999999",
+      "priceRange": "₹199 - ₹1599",
+      "currenciesAccepted": "INR",
+      "paymentAccepted": "Cash, Online Payment",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Gift Categories",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Valentine Gift Sets",
+              "category": "Gifts"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Birthday Gifts",
+              "category": "Gifts"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Festival Hampers",
+              "category": "Gifts"
+            }
+          }
+        ]
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    }
+    </script>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, onSnapshot, query, orderBy } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        
+        // Firebase configuration - YOUR ACTUAL CONFIG 🔥
+        const firebaseConfig = {
+            apiKey: "AIzaSyBXkGE8GUvf4fxBai1XqELM7TQB2069lrU",
+            authDomain: "giftskrafts-gk.firebaseapp.com",
+            projectId: "giftskrafts-gk",
+            storageBucket: "giftskrafts-gk.firebasestorage.app",
+            messagingSenderId: "279663864169",
+            appId: "1:279663864169:web:13ad9759751f5ecacc75f8",
+            measurementId: "G-VLEEXLW02W"
+        };
+        
+        // Initialize Firebase
+        let app, db;
+        let useFirebase = false;
+        
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            useFirebase = true;
+            console.log('Firebase initialized successfully');
+        } catch (error) {
+            console.warn('Firebase not configured, using localStorage fallback');
+            useFirebase = false;
+        }
+        
+        // Make Firebase functions available globally
+        window.firebaseDB = { db, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, onSnapshot, query, orderBy, useFirebase };
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #7b2cbf;
+            --secondary-purple: #9d4edd;
+            --primary-pink: #e0aaff;
+            --secondary-pink: #c77dff;
+            --accent-pink: #ff69b4;
+            --white: #ffffff;
+            --dark: #240046;
+            --light-gray: #f8f9fa;
+            --light-purple: #f3e8ff;
+            --shadow: 0 2px 10px rgba(123,44,191,0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+            color: var(--white);
+            padding: 8px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            border: 2px solid var(--primary-purple);
+        }
+
+        .site-name {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-bar {
+            padding: 8px 15px;
+            border: 2px solid var(--primary-pink);
+            border-radius: 25px;
+            width: 200px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-bar:focus {
+            border-color: var(--primary-purple);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary-purple);
+            color: var(--white);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(123,44,191,0.1), rgba(224,170,255,0.2));
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slideshow {
+            position: relative;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+        }
+
+        .slide h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-purple);
+            border: 2px solid var(--primary-purple);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Categories */
+        .categories {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: var(--white);
+        }
+
+        /* Products */
+        .products {
+            padding: 60px 0;
+            background: var(--light-purple);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--primary-pink);
+            background: var(--white);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-purple);
+            color: var(--white);
+            border-color: var(--primary-purple);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-pink), var(--secondary-pink));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--white);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .product-image.has-image {
+            background: none;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            color: var(--primary-purple);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .product-actions .btn {
+            flex: 1;
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .stars {
+            color: var(--secondary-pink);
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* Cart Page */
+        .cart-page {
+            display: none;
+            padding: 60px 0;
+            min-height: 500px;
+        }
+
+        .cart-items {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-total {
+            text-align: right;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-purple);
+            margin-top: 20px;
+        }
+
+        /* Checkout Form */
+        .checkout-form {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--primary-pink);
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-purple);
+        }
+
+        /* Contact Page */
+        .contact-page {
+            display: none;
+            padding: 60px 0;
+        }
+
+        .contact-info {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        /* About Page */
+        .about-page {
+            display: none;
+            padding: 60px 0;
+        }
+
+        .about-content {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 24px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Admin Panel Styles */
+        .admin-login {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .admin-login-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--light-purple);
+            z-index: 1500;
+            overflow-y: auto;
+        }
+
+        .admin-header {
+            background: var(--white);
+            padding: 15px 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .admin-header h2 {
+            font-size: 18px;
+            margin: 0;
+            color: var(--primary-purple);
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .admin-nav button {
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .admin-nav button.active {
+            background: var(--primary-purple);
+            color: var(--white);
+        }
+
+        .admin-nav button:hover {
+            background: var(--primary-pink);
+            color: var(--white);
+        }
+
+        .admin-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .admin-section {
+            display: none;
+            background: var(--white);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .admin-section h2 {
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .admin-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .admin-form .form-group {
+            margin-bottom: 0;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow-x: auto;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .admin-table thead,
+        .admin-table tbody {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            padding: 12px 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            word-wrap: break-word;
+            overflow: hidden;
+        }
+
+        .admin-table th {
+            background: var(--primary-purple);
+            color: var(--white);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .admin-table tr:hover {
+            background: var(--light-purple);
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 11px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-edit {
+            background: var(--secondary-pink);
+            color: var(--white);
+        }
+
+        .btn-delete {
+            background: #dc3545;
+            color: var(--white);
+        }
+
+        .btn-complete {
+            background: #28a745;
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
+            color: var(--white);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .admin-toggle {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: var(--primary-purple);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Image Upload Styles */
+        .image-upload-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .image-upload-btn {
+            background: var(--light-purple);
+            color: var(--primary-purple);
+            border: 2px dashed var(--primary-purple);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-height: 100px;
+            justify-content: center;
+        }
+
+        .image-upload-btn:hover {
+            background: var(--secondary-pink);
+            color: var(--white);
+            border-color: var(--secondary-pink);
+        }
+
+        .image-upload-btn i {
+            font-size: 20px;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .image-upload-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .remove-image-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .image-preview-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .image-preview-container:hover .remove-image-btn {
+            display: flex;
+        }
+
+        /* Image Upload Styles */
+        .image-upload-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .image-upload-btn {
+            background: var(--light-purple);
+            color: var(--primary-purple);
+            border: 2px dashed var(--primary-purple);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-height: 100px;
+            justify-content: center;
+        }
+
+        .image-upload-btn:hover {
+            background: var(--secondary-pink);
+            color: var(--white);
+            border-color: var(--secondary-pink);
+        }
+
+        .image-upload-btn i {
+            font-size: 20px;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .image-upload-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .remove-image-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .image-preview-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .image-preview-container:hover .remove-image-btn {
+            display: flex;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            /* Mobile Header Improvements */
+            header {
+                box-shadow: var(--shadow);
+            }
+
+            .top-bar {
+                padding: 6px 10px;
+                font-size: 12px;
+                line-height: 1.3;
+            }
+
+            nav {
+                padding: 10px 0;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .logo {
+                flex-shrink: 0;
+            }
+
+            .site-name {
+                font-size: 16px;
+                line-height: 1.2;
+            }
+
+            .logo-placeholder {
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 15px;
+                box-shadow: var(--shadow);
+                z-index: 1001;
+                border-radius: 0 0 10px 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
+
+            .nav-links a {
+                padding: 8px 0;
+                display: block;
+                border-bottom: 1px solid #eee;
+            }
+
+            .nav-actions {
+                gap: 8px;
+                flex-shrink: 0;
+            }
+
+            .search-bar {
+                width: 80px;
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            .hamburger {
+                display: flex;
+                order: 2;
+            }
+
+            .cart-icon {
+                font-size: 20px;
+                order: 1;
+            }
+
+            /* Mobile Admin Panel Improvements */
+            .admin-login-form {
+                padding: 25px;
+                margin: 0 10px;
+                border-radius: 10px;
+            }
+
+            .admin-login-form h2 {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+
+            .admin-header {
+                padding: 10px 15px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+
+            .admin-header h2 {
+                font-size: 16px;
+                text-align: center;
+                order: 1;
+            }
+
+            .admin-nav {
+                order: 2;
+                justify-content: center;
+                gap: 5px;
+                flex-wrap: wrap;
+            }
+
+            .admin-nav button {
+                padding: 6px 10px;
+                font-size: 11px;
+                flex: 1;
+                min-width: 60px;
+                text-align: center;
+            }
+
+            .admin-header .btn {
+                order: 3;
+                align-self: center;
+                padding: 6px 15px;
+                font-size: 12px;
+            }
+
+            .admin-content {
+                padding: 10px;
+            }
+
+            .admin-section {
+                padding: 15px;
+                margin-bottom: 10px;
+                border-radius: 10px;
+            }
+
+            .admin-section h2 {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+
+            .admin-form {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .admin-form .form-group {
+                margin-bottom: 10px;
+            }
+
+            .admin-form .form-group label {
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .admin-form .form-group input,
+            .admin-form .form-group select,
+            .admin-form .form-group textarea {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .stat-card {
+                padding: 12px 8px;
+                border-radius: 8px;
+            }
+
+            .stat-number {
+                font-size: 18px;
+                margin-bottom: 2px;
+            }
+
+            .stat-card span:last-child {
+                font-size: 11px;
+                opacity: 0.9;
+            }
+
+            .admin-table {
+                font-size: 12px;
+                margin-top: 15px;
+            }
+
+            .admin-table th,
+            .admin-table td {
+                padding: 8px 4px;
+                word-break: break-word;
+            }
+
+            .admin-table th {
+                font-size: 11px;
+            }
+
+            .admin-actions {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .btn-small {
+                padding: 4px 8px;
+                font-size: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .admin-toggle {
+                width: 45px;
+                height: 45px;
+                bottom: 80px;
+                right: 15px;
+                font-size: 16px;
+            }
+
+            /* Mobile Product Management */
+            .admin-form-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin: 15px 0;
+            }
+
+            .admin-form-buttons .btn {
+                width: 100%;
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            /* Mobile Table Scrolling */
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                border-radius: 8px;
+            }
+
+            .admin-table {
+                min-width: 500px;
+            }
+
+            /* Hero section mobile improvements */
+            .hero {
+                padding: 30px 0;
+            }
+
+            .slideshow {
+                height: 200px;
+                border-radius: 10px;
+            }
+
+            .slide h2 {
+                font-size: 20px;
+            }
+
+            .slide-content {
+                padding: 20px 15px;
+                border-radius: 10px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 15px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 15px;
+            }
+
+            .category-card {
+                padding: 15px 10px;
+            }
+
+            .category-card h3 {
+                font-size: 14px;
+            }
+
+            .category-card p {
+                font-size: 11px;
+            }
+
+            .category-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .product-card {
+                border-radius: 10px;
+            }
+
+            .product-image {
+                height: 100px;
+                font-size: 30px;
+            }
+
+            .product-info {
+                padding: 12px;
+            }
+
+            .product-name {
+                font-size: 13px;
+                line-height: 1.3;
+            }
+
+            .product-price {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            .product-actions {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .product-actions .btn {
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+
+            .filter-bar {
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .testimonial-card {
+                padding: 20px 15px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-actions {
+                gap: 6px;
+            }
+
+            .search-bar {
+                width: 70px;
+                padding: 5px 8px;
+            }
+
+            .site-name {
+                font-size: 14px;
+            }
+
+            .logo-placeholder {
+                width: 30px;
+                height: 30px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .slide h2 {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .admin-nav {
+                gap: 3px;
+            }
+
+            .admin-nav button {
+                padding: 5px 6px;
+                font-size: 10px;
+                min-width: 50px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+
+            .admin-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+                bottom: 70px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        🎁 Free Delivery on Orders Above ₹500 | 🎄 Festival Special Offers Available!
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="image.png" alt="GiftsKraft by GK" class="logo-image">
+                <div class="site-name">GiftsKraft</div>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('shop')">Shop</a></li>
+                <li><a href="#" onclick="showSection('cart')">Cart</a></li>
+                <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+                <li><a href="#" onclick="showSection('about')">About Us</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <input type="text" class="search-bar" placeholder="Search..." id="searchBar">
+                <div class="cart-icon" onclick="showSection('cart')">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <div id="home" class="section">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="slideshow">
+                    <div class="slide active" style="background: linear-gradient(135deg, rgba(255,105,180,0.3), rgba(243,156,18,0.3));">
+                        <div class="slide-content">
+                            <h2>🎁 Diwali Special</h2>
+                            <p>Exclusive festival gifts with 30% OFF on selected items!</p>
+                        </div>
+                    </div>
+                    <div class="slide" style="background: linear-gradient(135deg, rgba(231,76,60,0.3), rgba(255,192,203,0.3));">
+                        <div class="slide-content">
+                            <h2>🎂 Birthday Sale</h2>
+                            <p>Make birthdays special with our unique gift collection!</p>
+                        </div>
+                    </div>
+                    <div class="slide" style="background: linear-gradient(135deg, rgba(243,156,18,0.3), rgba(255,105,180,0.3));">
+                        <div class="slide-content">
+                            <h2>✨ New Arrivals</h2>
+                            <p>Check out our latest collection of handcrafted gifts!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="showSection('shop')">Shop Now</button>
+                    <a href="https://wa.me/919999999999?text=Hi! I want to order from Giftskrafts" class="btn btn-whatsapp">Order on WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title">Shop by Category</h2>
+                <div class="category-grid">
+                    <div class="category-card" onclick="filterProducts('valentine')">
+                        <div class="category-icon">💝</div>
+                        <h3>Valentine Gifts</h3>
+                        <p>Perfect gifts for your loved ones</p>
+                    </div>
+                    <div class="category-card" onclick="filterProducts('girls')">
+                        <div class="category-icon">💖</div>
+                        <h3>Girls Collection</h3>
+                        <p>Beautiful gifts for girls</p>
+                    </div>
+                    <div class="category-card" onclick="filterProducts('mens')">
+                        <div class="category-icon">🎁</div>
+                        <h3>Men's Collection</h3>
+                        <p>Perfect gifts for men</p>
+                    </div>
+                    <div class="category-card" onclick="filterProducts('toys')">
+                        <div class="category-icon">🧸</div>
+                        <h3>Toys & Cuties</h3>
+                        <p>Adorable toys for little ones</p>
+                    </div>
+                    <div class="category-card" onclick="filterProducts('birthday')">
+                        <div class="category-icon">🎂</div>
+                        <h3>Birthday Gifts</h3>
+                        <p>Special gifts for birthdays</p>
+                    </div>
+                    <div class="category-card" onclick="filterProducts('festival')">
+                        <div class="category-icon">🪔</div>
+                        <h3>Festival Gifts</h3>
+                        <p>Celebrate festivals with joy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bestsellers -->
+        <section class="products">
+            <div class="container">
+                <h2 class="section-title">Bestsellers</h2>
+                <div class="product-grid" id="bestsellerGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Happy Customers</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Amazing gift collection! My daughter loved the birthday surprise box!"</p>
+                        <h4>- Priya Sharma</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Quick delivery and excellent quality. Highly recommended!"</p>
+                        <h4>- Rahul Kumar</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Perfect gifts for every occasion. Great customer service!"</p>
+                        <h4>- Anjali Patel</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Shop Section -->
+    <div id="shop" class="section" style="display: none;">
+        <section class="products">
+            <div class="container">
+                <h2 class="section-title">All Products</h2>
+                <div class="filter-bar">
+                    <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+                    <button class="filter-btn" onclick="filterProducts('valentine')">Valentine</button>
+                    <button class="filter-btn" onclick="filterProducts('girls')">Girls</button>
+                    <button class="filter-btn" onclick="filterProducts('mens')">Men's</button>
+                    <button class="filter-btn" onclick="filterProducts('toys')">Toys</button>
+                    <button class="filter-btn" onclick="filterProducts('birthday')">Birthday</button>
+                    <button class="filter-btn" onclick="filterProducts('festival')">Festival</button>
+                </div>
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Cart Section -->
+    <div id="cart" class="section cart-page" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Your Cart</h2>
+            <div class="cart-items" id="cartItems">
+                <p>Your cart is empty</p>
+            </div>
+            <div class="checkout-form" id="checkoutForm" style="display: none;">
+                <h3>Checkout Information</h3>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address</label>
+                    <textarea rows="3" placeholder="Enter delivery address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <select>
+                        <option>Cash on Delivery (COD)</option>
+                        <option>UPI Payment</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="processCheckout()">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="section contact-page" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    📧 <span>Email: info@giftskraftsbygk.com</span>
+                </div>
+                <div class="contact-item">
+                    📱 <span>Phone: +91 99999 99999</span>
+                </div>
+                <div class="contact-item">
+                    📷 <span>Instagram: @giftskraftsbygk</span>
+                </div>
+                <div class="contact-item">
+                    👍 <span>Facebook: Giftskrafts by GK</span>
+                </div>
+                <div class="contact-item">
+                    💬 <span>WhatsApp: +91 99999 99999</span>
+                </div>
+                <div class="contact-item">
+                    📍 <span>Address: 123 Gift Street, Mumbai, Maharashtra 400001</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="section about-page" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">About Giftskrafts by GK</h2>
+            <div class="about-content">
+                <p>Welcome to Giftskrafts by GK, your one-stop destination for unique and personalized gifts! We specialize in creating memorable moments through our carefully curated collection of gifts for all occasions.</p>
+                <br>
+                <p>Founded with love and passion, we believe that every gift tells a story. Our mission is to help you express your feelings through thoughtful presents that bring joy to your loved ones.</p>
+                <br>
+                <h3>Why Choose Us?</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>✨ Handpicked & Quality Products</li>
+                    <li>🎁 Customization Available</li>
+                    <li>🚚 Fast & Reliable Delivery</li>
+                    <li>💝 Gift Wrapping Services</li>
+                    <li>🌟 100% Customer Satisfaction</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showSection('home')">Home</a></li>
+                        <li><a href="#" onclick="showSection('shop')">Shop</a></li>
+                        <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+                        <li><a href="#" onclick="showSection('about')">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="filterProducts('birthday')">Birthday Gifts</a></li>
+                        <li><a href="#" onclick="filterProducts('festival')">Festival Special</a></li>
+                        <li><a href="#" onclick="filterProducts('stationery')">Stationery</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" style="color: white;">📷</a>
+                        <a href="#" style="color: white;">👍</a>
+                        <a href="https://wa.me/919999999999" style="color: white;">💬</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Giftskrafts by GK. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float" onclick="window.open('https://wa.me/919999999999?text=Hi! I need help with my order', '_blank')">
+        💬
+    </div>
+
+    <!-- Admin Toggle Button -->
+    <div class="admin-toggle" onclick="showAdminLogin()">
+        ⚙️
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="admin-login" id="adminLogin">
+        <div class="admin-login-form">
+            <h2>Admin Login</h2>
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" id="adminUsername" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" id="adminPassword" placeholder="Enter password">
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-primary" onclick="adminLogin()">Login</button>
+                <button class="btn btn-secondary" onclick="closeAdminLogin()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h2>Admin Dashboard - Giftskrafts by GK</h2>
+            <div class="admin-nav">
+                <button class="active" onclick="showAdminSection('dashboard')">Dashboard</button>
+                <button onclick="showAdminSection('products')">Products</button>
+                <button onclick="showAdminSection('orders')">Orders</button>
+                <button onclick="showAdminSection('offers')">Offers</button>
+                <button onclick="showAdminSection('settings')">Settings</button>
+            </div>
+            <button class="btn btn-secondary" onclick="adminLogout()">Logout</button>
+        </div>
+
+        <div class="admin-content">
+            <!-- Dashboard Section -->
+            <div class="admin-section active" id="admin-dashboard">
+                <h2>Dashboard Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number" id="totalProducts">8</span>
+                        <span>Total Products</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="totalOrders">0</span>
+                        <span>Total Orders</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="totalRevenue">₹0</span>
+                        <span>Total Revenue</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number" id="activeOffers">0</span>
+                        <span>Active Offers</span>
+                    </div>
+                </div>
+                
+                <h3>Recent Orders</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr><th>Order ID</th><th>Customer</th><th>Amount</th><th>Status</th><th>Date</th></tr>
+                    </thead>
+                    <tbody id="recentOrdersTable">
+                        <tr><td colspan="5">No orders yet</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Products Section -->
+            <div class="admin-section" id="admin-products">
+                <h2>Manage Products</h2>
+                
+                <div class="admin-form">
+                    <div class="form-group">
+                        <label>Product Name:</label>
+                        <input type="text" id="productName" placeholder="Enter product name">
+                    </div>
+                    <div class="form-group">
+                        <label>Price (₹):</label>
+                        <input type="number" id="productPrice" placeholder="Enter price">
+                    </div>
+                    <div class="form-group">
+                        <label>Category:</label>
+                        <select id="productCategory">
+                            <option value="valentine">Valentine</option>
+                            <option value="girls">Girls</option>
+                            <option value="mens">Men's</option>
+                            <option value="toys">Toys</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="festival">Festival</option>
+                            <option value="anniversary">Anniversary</option>
+                            <option value="kids">Kids</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Emoji:</label>
+                        <input type="text" id="productEmoji" placeholder="Enter emoji">
+                    </div>
+                    <div class="form-group">
+                        <label>Product Image:</label>
+                        <div class="image-upload-container">
+                            <div class="image-upload-btn" onclick="document.getElementById('productImageInput').click()">
+                                <i>📷</i>
+                                <span>Click to upload image</span>
+                                <small>JPG, PNG, GIF supported</small>
+                            </div>
+                            <input type="file" id="productImageInput" class="image-upload-input" accept="image/*" onchange="handleImageUpload(event, 'productImagePreview')">
+                            <div id="productImagePreview" class="image-preview-container" style="display: none;">
+                                <img class="image-preview" id="productImageDisplay">
+                                <button type="button" class="remove-image-btn" onclick="removeImage('productImagePreview')">&times;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea id="productDescription" placeholder="Enter description" rows="3"></textarea>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <button class="btn btn-primary" onclick="addProduct()">Add Product</button>
+                    <button class="btn btn-secondary" onclick="updateProduct()" id="updateProductBtn" style="display: none;">Update Product</button>
+                    <button class="btn btn-secondary" onclick="cancelEdit()" id="cancelEditBtn" style="display: none;">Cancel</button>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr><th>ID</th><th>Name</th><th>Price</th><th>Category</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="productsTable"></tbody>
+                </table>
+            </div>
+
+            <!-- Orders Section -->
+            <div class="admin-section" id="admin-orders">
+                <h2>Manage Orders</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr><th>Order ID</th><th>Customer Info</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="ordersTable">
+                        <tr><td colspan="7">No orders yet</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Offers Section -->
+            <div class="admin-section" id="admin-offers">
+                <h2>Manage Offers & Discounts</h2>
+                
+                <div class="admin-form">
+                    <div class="form-group">
+                        <label>Offer Title:</label>
+                        <input type="text" id="offerTitle" placeholder="Enter offer title">
+                    </div>
+                    <div class="form-group">
+                        <label>Discount %:</label>
+                        <input type="number" id="offerDiscount" placeholder="Enter discount percentage" min="0" max="100">
+                    </div>
+                    <div class="form-group">
+                        <label>Minimum Amount (₹):</label>
+                        <input type="number" id="offerMinAmount" placeholder="Minimum order amount">
+                    </div>
+                    <div class="form-group">
+                        <label>Valid Until:</label>
+                        <input type="date" id="offerValidUntil">
+                    </div>
+                    <div class="form-group">
+                        <label>Offer Code:</label>
+                        <input type="text" id="offerCode" placeholder="Enter discount code">
+                    </div>
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea id="offerDescription" placeholder="Offer description" rows="2"></textarea>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <button class="btn btn-primary" onclick="addOffer()">Add Offer</button>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr><th>Title</th><th>Discount</th><th>Min Amount</th><th>Code</th><th>Valid Until</th><th>Status</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="offersTable"></tbody>
+                </table>
+            </div>
+
+            <!-- Settings Section -->
+            <div class="admin-section" id="admin-settings">
+                <h2>Store Settings</h2>
+                
+                <div class="admin-form">
+                    <div class="form-group">
+                        <label>Store Name:</label>
+                        <input type="text" id="storeName" value="Giftskrafts by GK">
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp Number:</label>
+                        <input type="text" id="whatsappNumber" value="919999999999">
+                    </div>
+                    <div class="form-group">
+                        <label>Free Delivery Above (₹):</label>
+                        <input type="number" id="freeDeliveryAmount" value="500">
+                    </div>
+                    <div class="form-group">
+                        <label>Store Email:</label>
+                        <input type="email" id="storeEmail" placeholder="store@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Store Address:</label>
+                        <textarea id="storeAddress" rows="3" placeholder="Enter store address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Top Bar Message:</label>
+                        <textarea id="topBarMessage" rows="2">🎁 Free Delivery on Orders Above ₹500 | 🎄 Festival Special Offers Available!</textarea>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product Data
+        const products = [
+            { 
+                id: 1, 
+                name: "Complete Valentine Set", 
+                price: 1299, 
+                category: "valentine", 
+                emoji: "💝", 
+                image: "PRODUCTS/Complete valentine set for giving your special one best valentine day gift.jpg",
+                description: "Perfect valentine gift set for your special one"
+            },
+            { 
+                id: 2, 
+                name: "Girls Favorite Choice", 
+                price: 899, 
+                category: "girls", 
+                emoji: "💖", 
+                image: "PRODUCTS/Girls favorite choice.jpg",
+                description: "Beautiful gift collection loved by girls"
+            },
+            { 
+                id: 3, 
+                name: "Men's Gift Combo", 
+                price: 1599, 
+                category: "mens", 
+                emoji: "�", 
+                image: "PRODUCTS/Mens gift combo.jpg",
+                description: "Perfect gift combo for men"
+            },
+            { 
+                id: 4, 
+                name: "Soft Toy for Cuties", 
+                price: 699, 
+                category: "toys", 
+                emoji: "🧸", 
+                image: "PRODUCTS/Soft toy for cuties.jpg",
+                description: "Adorable soft toys for little ones"
+            },
+            // Additional products to maintain variety
+            { id: 5, name: "Birthday Special Box", price: 799, category: "birthday", emoji: "🎂" },
+            { id: 6, name: "Festival Hamper", price: 999, category: "festival", emoji: "🪔" },
+            { id: 7, name: "Anniversary Gift Set", price: 1199, category: "anniversary", emoji: "💕" },
+            { id: 8, name: "Kids Fun Pack", price: 599, category: "kids", emoji: "�" }
+        ];
+
+        // Cart array
+        let cart = [];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProducts('all');
+            loadBestsellers();
+            startSlideshow();
+            loadCartFromStorage();
+        });
+
+        // Load products
+        function loadProducts(category) {
+            const productGrid = document.getElementById('productGrid');
+            const filteredProducts = category === 'all' ? products : products.filter(p => p.category === category);
+            
+            productGrid.innerHTML = filteredProducts.map(product => `
+                <div class="product-card">
+                    <div class="product-image ${product.image ? 'has-image' : ''}">
+                        ${product.image ? 
+                            `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='${product.emoji}'">` : 
+                            product.emoji
+                        }
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">₹${product.price}</div>
+                        ${product.description ? `<p style="font-size: 12px; color: #666; margin-bottom: 10px;">${product.description}</p>` : ''}
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</button>
+                            <button class="btn btn-whatsapp" onclick="orderViaWhatsApp('${product.name}', ${product.price})">WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Load bestsellers
+        function loadBestsellers() {
+            const bestsellerGrid = document.getElementById('bestsellerGrid');
+            const bestsellers = products.slice(0, 4);
+            
+            bestsellerGrid.innerHTML = bestsellers.map(product => `
+                <div class="product-card">
+                    <div class="product-image ${product.image ? 'has-image' : ''}">
+                        ${product.image ? 
+                            `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='${product.emoji}'">` : 
+                            product.emoji
+                        }
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">₹${product.price}</div>
+                        ${product.description ? `<p style="font-size: 12px; color: #666; margin-bottom: 10px;">${product.description}</p>` : ''}
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</button>
+                            <button class="btn btn-whatsapp" onclick="orderViaWhatsApp('${product.name}', ${product.price})">WhatsApp</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter products
+        function filterProducts(category) {
+            showSection('shop');
+            loadProducts(category);
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target?.classList.add('active');
+        }
+
+        // Add to cart
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+            
+            updateCartCount();
+            saveCartToStorage();
+            alert(`${product.name} added to cart!`);
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cartCount').innerText = cartCount;
+        }
+
+        // Display cart
+        function displayCart() {
+            const cartItems = document.getElementById('cartItems');
+            const checkoutForm = document.getElementById('checkoutForm');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p>Your cart is empty</p>';
+                checkoutForm.style.display = 'none';
+            } else {
+                let total = 0;
+                cartItems.innerHTML = cart.map(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    return `
+                        <div class="cart-item">
+                            <div>
+                                <strong>${item.name}</strong>
+                                <br>₹${item.price} x ${item.quantity} = ₹${itemTotal}
+                            </div>
+                            <button class="btn btn-secondary" onclick="removeFromCart(${item.id})">Remove</button>
+                        </div>
+                    `;
+                }).join('');
+                
+                cartItems.innerHTML += `<div class="cart-total">Total: ₹${total}</div>`;
+                checkoutForm.style.display = 'block';
+            }
+        }
+
+        // Remove from cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartCount();
+            displayCart();
+            saveCartToStorage();
+        }
+
+        // Save cart to localStorage
+        function saveCartToStorage() {
+            localStorage.setItem('gkCart', JSON.stringify(cart));
+        }
+
+        // Load cart from localStorage
+        function loadCartFromStorage() {
+            const savedCart = localStorage.getItem('gkCart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCartCount();
+            }
+        }
+
+        // Process checkout
+        function processCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            alert('Order placed successfully! We will contact you soon for confirmation.');
+            cart = [];
+            updateCartCount();
+            saveCartToStorage();
+            displayCart();
+        }
+
+        // Order via WhatsApp
+        function orderViaWhatsApp(productName, price) {
+            const message = `Hi! I want to order ${productName} (₹${price}) from Giftskrafts`;
+            const whatsappUrl = `https://wa.me/919999999999?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Show section
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(sec => {
+                sec.style.display = 'none';
+            });
+            
+            document.getElementById(section).style.display = 'block';
+            
+            if (section === 'cart') {
+                displayCart();
+            }
+            
+            // Close mobile menu
+            document.getElementById('navLinks').classList.remove('active');
+        }
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Slideshow
+        function startSlideshow() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 3000);
+        }
+
+        // Search functionality
+        document.getElementById('searchBar').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            if (searchTerm.length > 2) {
+                const filtered = products.filter(p => 
+                    p.name.toLowerCase().includes(searchTerm) || 
+                    p.category.toLowerCase().includes(searchTerm)
+                );
+                
+                if (filtered.length > 0) {
+                    showSection('shop');
+                    const productGrid = document.getElementById('productGrid');
+                    productGrid.innerHTML = filtered.map(product => `
+                        <div class="product-card">
+                            <div class="product-image ${product.image ? 'has-image' : ''}">${product.image ? `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='${product.emoji}'">` : product.emoji}</div>
+                            <div class="product-info">
+                                <div class="product-name">${product.name}</div>
+                                <div class="product-price">₹${product.price}</div>
+                                ${product.description ? `<p style="font-size: 12px; color: #666; margin-bottom: 10px;">${product.description}</p>` : ''}
+                                <div class="product-actions">
+                                    <button class="btn btn-primary" onclick="addToCart(${product.id})">Add to Cart</button>
+                                    <button class="btn btn-whatsapp" onclick="orderViaWhatsApp('${product.name}', ${product.price})">WhatsApp</button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+        });
+
+        // Admin System Variables
+        let adminLoggedIn = false;
+        let currentEditingProduct = null;
+        let orders = JSON.parse(localStorage.getItem('gkOrders') || '[]');
+        let offers = JSON.parse(localStorage.getItem('gkOffers') || '[]');
+        let nextOrderId = parseInt(localStorage.getItem('nextOrderId') || '1');
+        let nextProductId = Math.max(...products.map(p => p.id), 0) + 1;
+
+        // Admin Login Functions
+        function showAdminLogin() {
+            const loginModal = document.getElementById('adminLogin');
+            if (loginModal) {
+                loginModal.style.display = 'flex';
+                setTimeout(() => {
+                    const usernameField = document.getElementById('adminUsername');
+                    if (usernameField) usernameField.focus();
+                }, 100);
+            }
+        }
+
+        function closeAdminLogin() {
+            const loginModal = document.getElementById('adminLogin');
+            if (loginModal) {
+                loginModal.style.display = 'none';
+                document.getElementById('adminUsername').value = '';
+                document.getElementById('adminPassword').value = '';
+            }
+        }
+
+        function adminLogin() {
+            const username = document.getElementById('adminUsername').value.trim();
+            const password = document.getElementById('adminPassword').value.trim();
+            
+            if (username === 'admin' && password === 'gk2025') {
+                adminLoggedIn = true;
+                closeAdminLogin();
+                const adminPanel = document.getElementById('adminPanel');
+                if (adminPanel) {
+                    adminPanel.style.display = 'block';
+                    loadAdminData();
+                    alert('Welcome to Admin Panel!');
+                }
+            } else {
+                alert('Invalid username or password');
+                document.getElementById('adminUsername').value = '';
+                document.getElementById('adminPassword').value = '';
+            }
+        }
+
+        // Image Upload Functions
+        function handleImageUpload(event, previewId) {
+            const file = event.target.files[0];
+            if (file) {
+                // Check file size (5MB limit)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('File size should be less than 5MB');
+                    return;
+                }
+                
+                // Check file type
+                if (!file.type.startsWith('image/')) {
+                    alert('Please select a valid image file');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const previewContainer = document.getElementById(previewId);
+                    const previewImage = previewContainer.querySelector('.image-preview');
+                    
+                    previewImage.src = e.target.result;
+                    previewContainer.style.display = 'block';
+                    
+                    // Hide the upload button
+                    const uploadBtn = event.target.parentElement.querySelector('.image-upload-btn');
+                    uploadBtn.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removeImage(previewId) {
+            const previewContainer = document.getElementById(previewId);
+            const uploadBtn = previewContainer.parentElement.querySelector('.image-upload-btn');
+            const fileInput = previewContainer.parentElement.querySelector('.image-upload-input');
+            
+            previewContainer.style.display = 'none';
+            uploadBtn.style.display = 'flex';
+            fileInput.value = '';
+        }
+
+        function adminLogout() {
+            adminLoggedIn = false;
+            const adminPanel = document.getElementById('adminPanel');
+            if (adminPanel) {
+                adminPanel.style.display = 'none';
+            }
+        }
+
+        // Admin Navigation
+        function showAdminSection(section) {
+            document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.admin-nav button').forEach(b => b.classList.remove('active'));
+            
+            const targetSection = document.getElementById('admin-' + section);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+            
+            // Find and activate the corresponding button
+            document.querySelectorAll('.admin-nav button').forEach(btn => {
+                if (btn.textContent.toLowerCase().includes(section)) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            if (section === 'products') loadProductsTable();
+            if (section === 'orders') loadOrdersTable();
+            if (section === 'offers') loadOffersTable();
+        }
+
+        // Load Admin Data
+        function loadAdminData() {
+            updateDashboardStats();
+            loadProductsTable();
+            loadOrdersTable();
+            loadOffersTable();
+        }
+
+        function updateDashboardStats() {
+            document.getElementById('totalProducts').textContent = products.length;
+            document.getElementById('totalOrders').textContent = orders.length;
+            document.getElementById('totalRevenue').textContent = '₹' + orders.reduce((sum, order) => sum + order.total, 0);
+            document.getElementById('activeOffers').textContent = offers.filter(offer => new Date(offer.validUntil) > new Date()).length;
+        }
+
+        // Product Management Functions
+        function loadProductsTable() {
+            const table = document.getElementById('productsTable');
+            table.innerHTML = products.map(product => `
+                <tr>
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+                    <td>₹${product.price}</td>
+                    <td>${product.category}</td>
+                    <td class="admin-actions">
+                        <button class="btn btn-small btn-edit" onclick="editProduct(${product.id})">Edit</button>
+                        <button class="btn btn-small btn-delete" onclick="deleteProduct(${product.id})">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        async function addProduct() {
+            const name = document.getElementById('productName').value.trim();
+            const price = parseInt(document.getElementById('productPrice').value);
+            const category = document.getElementById('productCategory').value;
+            const emoji = document.getElementById('productEmoji').value.trim();
+            const description = document.getElementById('productDescription').value.trim();
+            
+            // Get uploaded image or use placeholder
+            const imagePreview = document.getElementById('productImageDisplay');
+            let image = imagePreview && imagePreview.src ? imagePreview.src : null;
+            
+            // If no image uploaded, create a placeholder
+            if (!image || image.includes('placeholder')) {
+                const colors = ['FF6B6B', '4ECDC4', '45B7D1', 'FFA726', '66BB6A', 'AB47BC'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                image = `https://via.placeholder.com/300x300/${randomColor}/ffffff?text=${encodeURIComponent(emoji || '🎁')}`;
+            }
+
+            if (!name || !price || !emoji) {
+                alert('Please fill in required fields: Name, Price, Emoji');
+                return;
+            }
+
+            const newProduct = {
+                id: nextProductId++,
+                name, price, category, emoji,
+                image: image || null,
+                description: description || null,
+                createdAt: new Date().toISOString()
+            };
+
+            try {
+                if (window.firebaseDB?.useFirebase) {
+                    // Add to Firebase (will auto-sync to all devices)
+                    const firebaseId = await addProductToFirebase(newProduct);
+                    console.log('Product added to Firebase with ID:', firebaseId);
+                    alert('Product added successfully! ✨ It will appear on all devices instantly.');
+                } else {
+                    // Fallback to localStorage
+                    products.push(newProduct);
+                    saveProducts();
+                    loadProductsTable();
+                    loadProducts('all');
+                    loadBestsellers();
+                    updateDashboardStats();
+                    alert('Product added successfully! (Local storage - only visible on this device)');
+                }
+                
+                clearProductForm();
+            } catch (error) {
+                console.error('Error adding product:', error);
+                alert('Error adding product. Please try again.');
+            }
+        }
+
+        function editProduct(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+
+            currentEditingProduct = id;
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productPrice').value = product.price;
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productEmoji').value = product.emoji;
+            document.getElementById('productDescription').value = product.description || '';
+
+            document.getElementById('updateProductBtn').style.display = 'inline-block';
+            document.getElementById('cancelEditBtn').style.display = 'inline-block';
+        }
+
+        function updateProduct() {
+            if (!currentEditingProduct) return;
+            const product = products.find(p => p.id === currentEditingProduct);
+            if (!product) return;
+
+            product.name = document.getElementById('productName').value.trim();
+            product.price = parseInt(document.getElementById('productPrice').value);
+            product.category = document.getElementById('productCategory').value;
+            product.emoji = document.getElementById('productEmoji').value.trim();
+            product.image = document.getElementById('productImage').value.trim() || null;
+            product.description = document.getElementById('productDescription').value.trim() || null;
+
+            saveProducts();
+            clearProductForm();
+            cancelEdit();
+            loadProductsTable();
+            loadProducts('all');
+            loadBestsellers();
+            alert('Product updated successfully!');
+        }
+
+        async function deleteProduct(id) {
+            if (!confirm('Are you sure you want to delete this product?')) {
+                return;
+            }
+            
+            try {
+                const product = products.find(p => p.id === id);
+                if (!product) {
+                    alert('Product not found!');
+                    return;
+                }
+                
+                if (window.firebaseDB?.useFirebase && product.firebaseId) {
+                    // Delete from Firebase (will auto-sync to all devices)
+                    await deleteProductFromFirebase(product.firebaseId);
+                    console.log('Product deleted from Firebase');
+                    alert('Product deleted successfully! ✨ Change will sync across all devices.');
+                } else {
+                    // Fallback to localStorage
+                    const index = products.findIndex(p => p.id === id);
+                    if (index !== -1) {
+                        products.splice(index, 1);
+                        saveProducts();
+                        loadProductsTable();
+                        loadProducts('all');
+                        loadBestsellers();
+                        updateDashboardStats();
+                        alert('Product deleted! (Local storage only)');
+                    }
+                }
+            } catch (error) {
+                console.error('Error deleting product:', error);
+                alert('Error deleting product. Please try again.');
+            }
+        }
+
+        function cancelEdit() {
+            currentEditingProduct = null;
+            document.getElementById('updateProductBtn').style.display = 'none';
+            document.getElementById('cancelEditBtn').style.display = 'none';
+            clearProductForm();
+        }
+
+        function clearProductForm() {
+            document.getElementById('productName').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productEmoji').value = '';
+            document.getElementById('productDescription').value = '';
+            
+            // Clear image upload
+            const previewContainer = document.getElementById('productImagePreview');
+            const uploadBtn = document.querySelector('.image-upload-btn');
+            const fileInput = document.getElementById('productImageInput');
+            
+            if (previewContainer) previewContainer.style.display = 'none';
+            if (uploadBtn) uploadBtn.style.display = 'flex';
+            if (fileInput) fileInput.value = '';
+        }
+
+        function saveProducts() {
+            localStorage.setItem('gkProducts', JSON.stringify(products));
+        }
+
+        // Order Management
+        function loadOrdersTable() {
+            const table = document.getElementById('ordersTable');
+            if (orders.length === 0) {
+                table.innerHTML = '<tr><td colspan="7">No orders yet</td></tr>';
+                return;
+            }
+            table.innerHTML = orders.slice().reverse().map(order => `
+                <tr>
+                    <td>#${order.id}</td>
+                    <td><strong>${order.customerName}</strong><br>${order.phone}</td>
+                    <td>${order.items.map(item => `${item.name} x${item.quantity}`).join('<br>')}</td>
+                    <td>₹${order.total}</td>
+                    <td>${order.status}</td>
+                    <td>${new Date(order.date).toLocaleDateString()}</td>
+                    <td><button class="btn btn-small btn-complete" onclick="completeOrder(${order.id})">Complete</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function completeOrder(id) {
+            const order = orders.find(o => o.id === id);
+            if (order) {
+                order.status = 'completed';
+                localStorage.setItem('gkOrders', JSON.stringify(orders));
+                loadOrdersTable();
+                updateDashboardStats();
+            }
+        }
+
+        // Offer Management
+        function loadOffersTable() {
+            const table = document.getElementById('offersTable');
+            if (offers.length === 0) {
+                table.innerHTML = '<tr><td colspan="7">No offers yet</td></tr>';
+                return;
+            }
+            table.innerHTML = offers.map(offer => `
+                <tr>
+                    <td>${offer.title}</td>
+                    <td>${offer.discount}%</td>
+                    <td>₹${offer.minAmount}</td>
+                    <td>${offer.code}</td>
+                    <td>${new Date(offer.validUntil).toLocaleDateString()}</td>
+                    <td>${new Date(offer.validUntil) > new Date() ? 'Active' : 'Expired'}</td>
+                    <td><button class="btn btn-small btn-delete" onclick="deleteOffer('${offer.code}')">Delete</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function addOffer() {
+            const title = document.getElementById('offerTitle').value.trim();
+            const discount = parseInt(document.getElementById('offerDiscount').value);
+            const minAmount = parseInt(document.getElementById('offerMinAmount').value);
+            const validUntil = document.getElementById('offerValidUntil').value;
+            const code = document.getElementById('offerCode').value.trim().toUpperCase();
+
+            if (!title || !discount || !minAmount || !validUntil || !code) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            offers.push({ title, discount, minAmount, validUntil, code });
+            localStorage.setItem('gkOffers', JSON.stringify(offers));
+            clearOfferForm();
+            loadOffersTable();
+            updateDashboardStats();
+            alert('Offer added successfully!');
+        }
+
+        function deleteOffer(code) {
+            if (confirm('Delete this offer?')) {
+                offers.splice(offers.findIndex(o => o.code === code), 1);
+                localStorage.setItem('gkOffers', JSON.stringify(offers));
+                loadOffersTable();
+                updateDashboardStats();
+            }
+        }
+
+        function clearOfferForm() {
+            document.getElementById('offerTitle').value = '';
+            document.getElementById('offerDiscount').value = '';
+            document.getElementById('offerMinAmount').value = '';
+            document.getElementById('offerValidUntil').value = '';
+            document.getElementById('offerCode').value = '';
+        }
+
+        // Settings Management
+        function saveSettings() {
+            const settings = {
+                storeName: document.getElementById('storeName').value,
+                whatsappNumber: document.getElementById('whatsappNumber').value,
+                freeDeliveryAmount: document.getElementById('freeDeliveryAmount').value,
+                topBarMessage: document.getElementById('topBarMessage').value
+            };
+            
+            localStorage.setItem('gkSettings', JSON.stringify(settings));
+            document.querySelector('.top-bar').innerHTML = settings.topBarMessage;
+            alert('Settings saved successfully!');
+        }
+
+        // Enhanced Product Management with Firebase
+        async function loadProductsFromFirebase() {
+            if (!window.firebaseDB?.useFirebase) {
+                return loadSavedData(); // Fallback to localStorage
+            }
+            
+            try {
+                const { db, collection, getDocs, query, orderBy } = window.firebaseDB;
+                const q = query(collection(db, 'products'), orderBy('id'));
+                const querySnapshot = await getDocs(q);
+                
+                products.length = 0; // Clear existing products
+                querySnapshot.forEach((doc) => {
+                    const productData = doc.data();
+                    products.push({ firebaseId: doc.id, ...productData });
+                });
+                
+                if (products.length === 0) {
+                    // Initialize with default products if empty
+                    await initializeDefaultProducts();
+                }
+                
+                console.log('Products loaded from Firebase:', products.length);
+            } catch (error) {
+                console.error('Error loading products from Firebase:', error);
+                loadSavedData(); // Fallback to localStorage
+            }
+        }
+        
+        async function initializeDefaultProducts() {
+            const defaultProducts = [
+                { 
+                    id: 1, name: "Complete Valentine Set", price: 1299, category: "valentine", 
+                    emoji: "💝", image: "PRODUCTS/Complete valentine set for giving your special one best valentine day gift.jpg",
+                    description: "Perfect valentine gift set for your special one"
+                },
+                { 
+                    id: 2, name: "Girls Favorite Choice", price: 899, category: "girls", 
+                    emoji: "💖", image: "PRODUCTS/Girls favorite choice.jpg",
+                    description: "Beautiful gift collection loved by girls"
+                },
+                { 
+                    id: 3, name: "Men's Gift Combo", price: 1599, category: "mens", 
+                    emoji: "🎁", image: "PRODUCTS/Mens gift combo.jpg",
+                    description: "Perfect gift combo for men"
+                },
+                { 
+                    id: 4, name: "Soft Toy for Cuties", price: 699, category: "toys", 
+                    emoji: "🧸", image: "PRODUCTS/Soft toy for cuties.jpg",
+                    description: "Adorable soft toys for little ones"
+                }
+            ];
+            
+            for (const product of defaultProducts) {
+                await addProductToFirebase(product);
+            }
+        }
+        
+        async function addProductToFirebase(productData) {
+            if (!window.firebaseDB?.useFirebase) {
+                return; // Skip if Firebase not available
+            }
+            
+            try {
+                const { db, collection, addDoc } = window.firebaseDB;
+                const docRef = await addDoc(collection(db, 'products'), productData);
+                return docRef.id;
+            } catch (error) {
+                console.error('Error adding product to Firebase:', error);
+                throw error;
+            }
+        }
+        
+        async function updateProductInFirebase(firebaseId, productData) {
+            if (!window.firebaseDB?.useFirebase) {
+                return;
+            }
+            
+            try {
+                const { db, updateDoc, doc } = window.firebaseDB;
+                await updateDoc(doc(db, 'products', firebaseId), productData);
+            } catch (error) {
+                console.error('Error updating product in Firebase:', error);
+                throw error;
+            }
+        }
+        
+        async function deleteProductFromFirebase(firebaseId) {
+            if (!window.firebaseDB?.useFirebase) {
+                return;
+            }
+            
+            try {
+                const { db, deleteDoc, doc } = window.firebaseDB;
+                await deleteDoc(doc(db, 'products', firebaseId));
+            } catch (error) {
+                console.error('Error deleting product from Firebase:', error);
+                throw error;
+            }
+        }
+        
+        // Real-time Firebase listener
+        function setupFirebaseListeners() {
+            if (!window.firebaseDB?.useFirebase) {
+                return;
+            }
+            
+            try {
+                const { db, collection, onSnapshot, query, orderBy } = window.firebaseDB;
+                const q = query(collection(db, 'products'), orderBy('id'));
+                
+                onSnapshot(q, (querySnapshot) => {
+                    products.length = 0;
+                    querySnapshot.forEach((doc) => {
+                        const productData = doc.data();
+                        products.push({ firebaseId: doc.id, ...productData });
+                    });
+                    
+                    // Refresh UI for all users
+                    loadProducts('all');
+                    loadBestsellers();
+                    if (adminLoggedIn) {
+                        loadProductsTable();
+                        updateDashboardStats();
+                    }
+                    
+                    console.log('Real-time update: Products synced across devices');
+                });
+            } catch (error) {
+                console.error('Error setting up Firebase listeners:', error);
+            }
+        }
+
+        // Load saved data with Firebase support
+        async function loadSavedData() {
+            if (window.firebaseDB?.useFirebase) {
+                await loadProductsFromFirebase();
+            } else {
+                // Fallback to localStorage
+                const savedProducts = localStorage.getItem('gkProducts');
+                if (savedProducts) {
+                    products.splice(0, products.length, ...JSON.parse(savedProducts));
+                }
+            }
+            
+            const savedSettings = localStorage.getItem('gkSettings');
+            if (savedSettings) {
+                const settings = JSON.parse(savedSettings);
+                const topBar = document.querySelector('.top-bar');
+                if (topBar) {
+                    topBar.innerHTML = settings.topBarMessage || '🎁 Free Delivery on Orders Above ₹500 | 🎄 Festival Special Offers Available!';
+                }
+            }
+        }
+
+        // Initialize everything with Firebase support
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Wait a bit for Firebase to initialize
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                await loadSavedData();
+                loadProducts('all');
+                loadBestsellers();
+                startSlideshow();
+                loadCartFromStorage();
+                
+                // Setup real-time listeners for Firebase
+                setupFirebaseListeners();
+                
+                // Show Firebase status
+                if (window.firebaseDB?.useFirebase) {
+                    console.log('🔥 Firebase enabled - Multi-user real-time sync active!');
+                    // Show a subtle indicator
+                    const indicator = document.createElement('div');
+                    indicator.style.cssText = 'position:fixed;top:10px;right:10px;background:green;color:white;padding:5px 10px;border-radius:5px;font-size:12px;z-index:9999;';
+                    indicator.textContent = '🔥 Multi-User Sync Active';
+                    document.body.appendChild(indicator);
+                    setTimeout(() => indicator.remove(), 5000);
+                } else {
+                    console.log('📱 Using localStorage - Single device only');
+                }
+                
+                // Add keyboard support
+                const adminPassword = document.getElementById('adminPassword');
+                if (adminPassword) {
+                    adminPassword.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') adminLogin();
+                    });
+                }
+                
+                // Click outside to close
+                const adminLogin = document.getElementById('adminLogin');
+                if (adminLogin) {
+                    adminLogin.addEventListener('click', function(e) {
+                        if (e.target === adminLogin) closeAdminLogin();
+                    });
+                }
+            } catch (error) {
+                console.error('Error initializing app:', error);
+            }
+        });
+    </script>
+</body>
+</html>
