@@ -1294,6 +1294,281 @@
             box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
         }
 
+        /* Add to Cart Popup */
+        .cart-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .cart-popup-overlay.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-popup {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .cart-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .cart-popup-close:hover {
+            background: #ff6b35;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .cart-popup-icon {
+            font-size: 60px;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: bounceIn 0.6s ease;
+        }
+
+        .cart-popup-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #7b2cbf;
+            margin-bottom: 10px;
+        }
+
+        .cart-popup-product {
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.05), rgba(255, 105, 180, 0.05));
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .cart-popup-product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .cart-popup-product-price {
+            font-size: 20px;
+            color: #7b2cbf;
+            font-weight: bold;
+        }
+
+        .cart-popup-quantity {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .cart-popup-quantity-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .cart-popup-quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-popup-quantity-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 2px solid #7b2cbf;
+            background: white;
+            color: #7b2cbf;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-popup-quantity-btn:hover {
+            background: #7b2cbf;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .cart-popup-quantity-value {
+            font-size: 20px;
+            font-weight: bold;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .cart-popup-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .cart-popup-btn {
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .cart-popup-btn-primary {
+            background: linear-gradient(135deg, #7b2cbf, #ff69b4);
+            color: white;
+        }
+
+        .cart-popup-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.4);
+        }
+
+        .cart-popup-btn-secondary {
+            background: #25D366;
+            color: white;
+        }
+
+        .cart-popup-btn-secondary:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .cart-popup-btn-outline {
+            background: white;
+            color: #7b2cbf;
+            border: 2px solid #7b2cbf;
+        }
+
+        .cart-popup-btn-outline:hover {
+            background: #7b2cbf;
+            color: white;
+        }
+
+        /* Floating Cart Badge */
+        .floating-cart-badge {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: linear-gradient(135deg, #7b2cbf, #ff69b4);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4);
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-cart-badge.show {
+            display: flex;
+        }
+
+        .floating-cart-badge:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(123, 44, 191, 0.6);
+        }
+
+        .floating-cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff6b35;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid white;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
         /* ShopClues Layout Styles */
         .shopclues-layout {
             display: none;
@@ -2911,8 +3186,43 @@
             }
 
             .search-bar {
-                width: 70px;
-                padding: 5px 8px;
+                width: 120px;
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            /* Cart popup mobile adjustments */
+            .cart-popup {
+                padding: 20px;
+                max-width: 95%;
+                margin: 10px;
+            }
+
+            .cart-popup-title {
+                font-size: 20px;
+            }
+
+            .cart-popup-icon {
+                font-size: 50px;
+            }
+
+            .cart-popup-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .floating-cart-badge {
+                bottom: 75px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .floating-cart-count {
+                width: 22px;
+                height: 22px;
+                font-size: 11px;
             }
 
             .site-name {
@@ -3032,6 +3342,10 @@
                             <div class="account-dropdown-item" onclick="showSection('settings')">
                                 <span class="icon">⚙️</span>
                                 <span>Settings</span>
+                            </div>
+                            <div class="account-dropdown-item" onclick="showAdminLogin()">
+                                <span class="icon">🔐</span>
+                                <span>Admin Panel</span>
                             </div>
                             <div class="account-dropdown-item" onclick="logout()">
                                 <span class="icon">🚪</span>
@@ -3523,6 +3837,47 @@
         </div>
     </div>
 
+    <!-- Floating Cart Badge -->
+    <div class="floating-cart-badge" id="floatingCartBadge" onclick="showSection('cart')">
+        🛒
+        <span class="floating-cart-count" id="floatingCartCount">0</span>
+    </div>
+
+    <!-- Add to Cart Popup -->
+    <div class="cart-popup-overlay" id="cartPopupOverlay">
+        <div class="cart-popup">
+            <button class="cart-popup-close" onclick="closeCartPopup()">×</button>
+            <div class="cart-popup-icon">✅</div>
+            <div class="cart-popup-title">Added to Cart!</div>
+            
+            <div class="cart-popup-product">
+                <div class="cart-popup-product-name" id="popupProductName">Product Name</div>
+                <div class="cart-popup-product-price" id="popupProductPrice">₹0</div>
+            </div>
+
+            <div class="cart-popup-quantity">
+                <span class="cart-popup-quantity-label">Quantity:</span>
+                <div class="cart-popup-quantity-controls">
+                    <button class="cart-popup-quantity-btn" onclick="decreasePopupQuantity()">−</button>
+                    <span class="cart-popup-quantity-value" id="popupQuantity">1</span>
+                    <button class="cart-popup-quantity-btn" onclick="increasePopupQuantity()">+</button>
+                </div>
+            </div>
+
+            <div class="cart-popup-actions">
+                <button class="cart-popup-btn cart-popup-btn-primary" onclick="buyNowFromPopup()">
+                    🛍️ Buy Now
+                </button>
+                <button class="cart-popup-btn cart-popup-btn-secondary" onclick="shareToWhatsApp()">
+                    📱 Share on WhatsApp
+                </button>
+                <button class="cart-popup-btn cart-popup-btn-outline" onclick="continueShopping()">
+                    Continue Shopping
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -3768,11 +4123,6 @@
                 <p>🔒 100% Secure and Trusted Payment | 📦 Fast Delivery | 💯 Quality Assured</p>
             </div>
         </div>
-    </div>
-
-    <!-- Floating Theme Swap Button -->
-    <div class="theme-swap-float" onclick="toggleShopCluesLayout()" title="Toggle ShopClues Style">
-        🔄
     </div>
 
     <!-- Floating WhatsApp Button -->
@@ -4314,6 +4664,10 @@
         }
 
         // Add to cart - Enhanced for both layouts
+        // Global variable for popup product
+        let currentPopupProduct = null;
+        let currentPopupQuantity = 1;
+
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
             const existingItem = cart.find(item => item.id === productId);
@@ -4325,9 +4679,80 @@
             }
             
             updateCartCount();
-            updateShopCluesCartCount(); // Update ShopClues layout cart count
+            updateShopCluesCartCount();
             saveCartToStorage();
-            alert(`${product.name} added to cart!`);
+            updateFloatingCartBadge();
+            
+            // Show popup instead of alert
+            showCartPopup(product);
+        }
+
+        // Show cart popup
+        function showCartPopup(product) {
+            currentPopupProduct = product;
+            currentPopupQuantity = 1;
+            
+            document.getElementById('popupProductName').textContent = product.name;
+            document.getElementById('popupProductPrice').textContent = `₹${product.price}`;
+            document.getElementById('popupQuantity').textContent = currentPopupQuantity;
+            document.getElementById('cartPopupOverlay').classList.add('show');
+        }
+
+        // Close cart popup
+        function closeCartPopup() {
+            document.getElementById('cartPopupOverlay').classList.remove('show');
+        }
+
+        // Increase quantity in popup
+        function increasePopupQuantity() {
+            currentPopupQuantity++;
+            document.getElementById('popupQuantity').textContent = currentPopupQuantity;
+            
+            // Update actual cart
+            const existingItem = cart.find(item => item.id === currentPopupProduct.id);
+            if (existingItem) {
+                existingItem.quantity = currentPopupQuantity;
+                updateCartCount();
+                saveCartToStorage();
+                updateFloatingCartBadge();
+            }
+        }
+
+        // Decrease quantity in popup
+        function decreasePopupQuantity() {
+            if (currentPopupQuantity > 1) {
+                currentPopupQuantity--;
+                document.getElementById('popupQuantity').textContent = currentPopupQuantity;
+                
+                // Update actual cart
+                const existingItem = cart.find(item => item.id === currentPopupProduct.id);
+                if (existingItem) {
+                    existingItem.quantity = currentPopupQuantity;
+                    updateCartCount();
+                    saveCartToStorage();
+                    updateFloatingCartBadge();
+                }
+            }
+        }
+
+        // Buy now from popup
+        function buyNowFromPopup() {
+            closeCartPopup();
+            showSection('cart');
+        }
+
+        // Share to WhatsApp
+        function shareToWhatsApp() {
+            const product = currentPopupProduct;
+            const quantity = currentPopupQuantity;
+            const total = product.price * quantity;
+            const message = `🎁 Check out this gift!\n\n${product.emoji} *${product.name}*\nPrice: ₹${product.price}\nQuantity: ${quantity}\nTotal: ₹${total}\n\n🛒 Order from GiftKrafts!\n📞 Call: +91 6305861922`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Continue shopping
+        function continueShopping() {
+            closeCartPopup();
         }
 
         // Update cart count - Enhanced for both layouts
@@ -4335,12 +4760,30 @@
             const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
             const defaultCartCount = document.getElementById('cartCount');
             const scCartCount = document.getElementById('sc-cart-count');
+            const mobileCartCount = document.getElementById('mobileCartCount');
             
             if (defaultCartCount) {
                 defaultCartCount.innerText = cartCount;
             }
             if (scCartCount) {
                 scCartCount.textContent = cartCount;
+            }
+            if (mobileCartCount) {
+                mobileCartCount.textContent = cartCount;
+            }
+        }
+
+        // Update floating cart badge
+        function updateFloatingCartBadge() {
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            const floatingBadge = document.getElementById('floatingCartBadge');
+            const floatingCount = document.getElementById('floatingCartCount');
+            
+            if (cartCount > 0) {
+                floatingBadge.classList.add('show');
+                floatingCount.textContent = cartCount;
+            } else {
+                floatingBadge.classList.remove('show');
             }
         }
 
@@ -6317,6 +6760,7 @@
                     id: id, 
                     name: name, 
                     price: price, 
+                    emoji: '🎁',
                     category: 'shopclues-special',
                     quantity: 1 
                 });
@@ -6325,7 +6769,10 @@
             updateCartCount();
             updateShopCluesCartCount();
             saveCartToStorage();
-            alert(`${name} added to cart!`);
+            updateFloatingCartBadge();
+            
+            // Show popup
+            showCartPopup({ id, name, price, emoji: '🎁' });
         }
 
         // Update ShopClues cart count
@@ -6584,6 +7031,27 @@
                         if (e.target === adminLogin) closeAdminLogin();
                     });
                 }
+
+                // Update floating cart badge on load
+                updateFloatingCartBadge();
+
+                // Prevent leaving with items in cart
+                window.addEventListener('beforeunload', function(e) {
+                    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+                    if (cartCount > 0) {
+                        e.preventDefault();
+                        e.returnValue = '🛒 You have items in your cart! Are you sure you want to leave?';
+                        return e.returnValue;
+                    }
+                });
+
+                // Click outside popup to close
+                document.getElementById('cartPopupOverlay').addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeCartPopup();
+                    }
+                });
+
             } catch (error) {
                 console.error('Error initializing app:', error);
             }
