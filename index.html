@@ -2510,51 +2510,47 @@
                 flex-wrap: nowrap;
                 width: 100%;
                 padding: 10px 0;
-                overflow: visible;
+                gap: 8px;
             }
             
             .logo {
-                flex: 0 1 auto;
-                max-width: 55%;
-                overflow: hidden;
+                flex: 0 0 auto;
+                overflow: visible;
                 gap: 6px;
                 white-space: nowrap;
+                cursor: pointer;
             }
             
             .site-name {
-                font-size: 14px;
+                font-size: 13px;
                 white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-width: 120px;
+                display: none;
             }
             
             .logo-image {
-                width: 32px;
-                height: 32px;
+                width: 35px;
+                height: 35px;
                 flex-shrink: 0;
             }
             
             .nav-actions {
-                flex: 0 0 auto;
-                gap: 4px;
-                max-width: 40%;
+                flex: 1 1 auto;
+                gap: 6px;
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
             }
             
             .search-bar {
-                width: 50px;
-                padding: 4px 6px;
-                font-size: 10px;
-                border-radius: 12px;
-                transition: width 0.3s ease;
-                min-width: 45px;
+                flex: 1 1 auto;
+                max-width: 180px;
+                padding: 6px 10px;
+                font-size: 12px;
+                border-radius: 15px;
             }
             
             .search-bar:focus {
-                width: 70px;
+                max-width: 220px;
             }
             
             .cart-icon {
@@ -3349,9 +3345,6 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <button class="back-button" id="backButton" onclick="goBack()" style="display: none;">
-                <span>←</span> Back
-            </button>
             <div class="logo" onclick="showSection('home')">
                 <img src="gk logo.png" alt="GiftsKraft by GK" class="logo-image">
                 <div class="site-name">GiftsKraft</div>
@@ -5229,20 +5222,6 @@
             // Show selected section
             document.getElementById(section).style.display = 'block';
             
-            // Show/hide back button with animation
-            const backButton = document.getElementById('backButton');
-            if (section === 'home') {
-                backButton.classList.remove('show');
-                setTimeout(() => {
-                    backButton.style.display = 'none';
-                }, 300);
-            } else {
-                backButton.style.display = 'flex';
-                setTimeout(() => {
-                    backButton.classList.add('show');
-                }, 10);
-            }
-            
             // Special section logic
             if (section === 'cart') {
                 displayCart();
@@ -5297,19 +5276,6 @@
         }
 
         // Go Back Function
-        function goBack() {
-            showSection('home');
-            
-            // Add bounce effect to logo
-            const logo = document.querySelector('.logo');
-            if (logo) {
-                logo.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    logo.style.transform = 'scale(1)';
-                }, 200);
-            }
-        }
-
         // Toggle mobile menu
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
