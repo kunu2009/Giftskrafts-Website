@@ -328,12 +328,35 @@
 
         .mobile-nav-dock .nav-container {
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-start;
             align-items: flex-end;
-            max-width: 600px;
+            max-width: 100%;
             margin: 0 auto;
             position: relative;
-            padding: 0 5px;
+            padding: 0 10px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            gap: 5px;
+        }
+
+        .mobile-nav-dock .nav-container::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        .mobile-nav-dock .nav-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .mobile-nav-dock .nav-container::-webkit-scrollbar-thumb {
+            background: var(--primary-purple);
+            border-radius: 10px;
+        }
+
+        .mobile-nav-item {
+            flex-shrink: 0;
+            min-width: 60px;
         }
 
         /* Active indicator line */
@@ -3899,6 +3922,190 @@
                 padding: 20px;
             }
         }
+
+        /* Admin Panel - User-Friendly Styles */
+        .multi-image-upload {
+            margin-bottom: 20px;
+        }
+
+        .image-upload-zone {
+            border: 3px dashed var(--primary-purple);
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--light-purple);
+        }
+
+        .image-upload-zone:hover {
+            background: var(--primary-pink);
+            border-color: var(--secondary-purple);
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .upload-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-purple);
+            margin-bottom: 5px;
+        }
+
+        .upload-hint {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .image-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+
+        .preview-image-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+            cursor: move;
+        }
+
+        .preview-image-item:hover {
+            border-color: var(--primary-purple);
+            transform: scale(1.05);
+        }
+
+        .preview-image-item.first-image {
+            border-color: var(--secondary-pink);
+            box-shadow: 0 0 0 3px var(--primary-purple);
+        }
+
+        .preview-image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .preview-image-badge {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: var(--primary-purple);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .preview-image-controls {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .preview-control-btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .preview-control-btn:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .btn-delete-img {
+            background: #CC0C39;
+            color: white;
+        }
+
+        .btn-move-left, .btn-move-right {
+            background: var(--primary-purple);
+            color: white;
+        }
+
+        /* Specifications Builder */
+        .specifications-builder {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .spec-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .spec-key, .spec-value {
+            padding: 10px;
+            border: 2px solid var(--primary-pink);
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .spec-key:focus, .spec-value:focus {
+            border-color: var(--primary-purple);
+            outline: none;
+        }
+
+        .btn-remove-spec {
+            width: 35px;
+            height: 35px;
+            border: none;
+            background: #CC0C39;
+            color: white;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-remove-spec:hover {
+            background: #A00C2E;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .spec-row {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-remove-spec {
+                width: 100%;
+                border-radius: 8px;
+                height: 40px;
+            }
+
+            .image-preview-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 10px;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -4940,70 +5147,86 @@
                 <h2>Manage Products</h2>
                 
                 <div class="admin-form">
+                    <h3 style="color: var(--primary-purple); margin-bottom: 10px;">📝 Required Information</h3>
+                    
                     <div class="form-group">
-                        <label>Product Name:</label>
-                        <input type="text" id="productName" placeholder="Enter product name">
+                        <label>Product Name: <span style="color: red;">*</span></label>
+                        <input type="text" id="productName" placeholder="Enter product name" required>
                     </div>
+                    
                     <div class="form-group">
-                        <label>Price (₹):</label>
-                        <input type="number" id="productPrice" placeholder="Enter price">
+                        <label>Price (₹): <span style="color: red;">*</span></label>
+                        <input type="number" id="productPrice" placeholder="Enter price" required>
                     </div>
+                    
                     <div class="form-group">
-                        <label>Category:</label>
-                        <select id="productCategory">
-                            <option value="valentine">Valentine</option>
-                            <option value="girls">Girls</option>
-                            <option value="mens">Men's</option>
-                            <option value="toys">Toys</option>
-                            <option value="birthday">Birthday</option>
-                            <option value="festival">Festival</option>
-                            <option value="anniversary">Anniversary</option>
-                            <option value="kids">Kids</option>
+                        <label>Category: <span style="color: red;">*</span></label>
+                        <select id="productCategory" required>
+                            <option value="valentine">💝 Valentine</option>
+                            <option value="girls">💖 Girls</option>
+                            <option value="mens">👔 Men's</option>
+                            <option value="toys">🧸 Toys</option>
+                            <option value="birthday">🎂 Birthday</option>
+                            <option value="festival">🪔 Festival</option>
+                            <option value="anniversary">💍 Anniversary</option>
+                            <option value="kids">👶 Kids</option>
                         </select>
                     </div>
+                    
                     <div class="form-group">
-                        <label>Emoji:</label>
-                        <input type="text" id="productEmoji" placeholder="Enter emoji">
-                    </div>
-                    <div class="form-group">
-                        <label>Product Image:</label>
-                        <div class="image-upload-container">
-                            <div class="image-upload-btn" onclick="document.getElementById('productImageInput').click()">
-                                <i>📷</i>
-                                <span>Click to upload image</span>
-                                <small>JPG, PNG, GIF supported</small>
+                        <label>Product Images: <span style="color: red;">*</span></label>
+                        <div class="multi-image-upload">
+                            <div class="image-upload-zone" onclick="document.getElementById('multiImageInput').click()">
+                                <div class="upload-icon">📷</div>
+                                <div class="upload-text">Click or Drag to Upload Images</div>
+                                <div class="upload-hint">You can select multiple images at once</div>
                             </div>
-                            <input type="file" id="productImageInput" class="image-upload-input" accept="image/*" onchange="handleImageUpload(event, 'productImagePreview')">
-                            <div id="productImagePreview" class="image-preview-container" style="display: none;">
-                                <img class="image-preview" id="productImageDisplay">
-                                <button type="button" class="remove-image-btn" onclick="removeImage('productImagePreview')">&times;</button>
-                            </div>
+                            <input type="file" id="multiImageInput" multiple accept="image/*" style="display: none;" onchange="handleMultipleImages(event)">
+                        </div>
+                        
+                        <div id="imagePreviewGrid" class="image-preview-grid" style="display: none;">
+                            <!-- Image previews will appear here -->
                         </div>
                     </div>
+                    
+                    <hr style="margin: 30px 0; border: 1px solid var(--light-purple);">
+                    <h3 style="color: var(--primary-purple); margin-bottom: 10px;">✨ Optional Information</h3>
+                    
                     <div class="form-group">
-                        <label>Additional Images (URLs, comma-separated):</label>
-                        <textarea id="productImages" placeholder="Enter image URLs separated by commas" rows="2"></textarea>
-                        <small style="color: #666;">Example: image1.jpg, image2.jpg, image3.jpg</small>
+                        <label>Emoji (for display):</label>
+                        <input type="text" id="productEmoji" placeholder="Enter emoji like 🎁">
+                        <small style="color: #666;">Windows: Win + . | Mac: Cmd + Ctrl + Space</small>
                     </div>
+                    
                     <div class="form-group">
                         <label>Description:</label>
-                        <textarea id="productDescription" placeholder="Enter detailed product description" rows="4"></textarea>
+                        <textarea id="productDescription" placeholder="Enter detailed product description..." rows="4"></textarea>
                     </div>
+                    
                     <div class="form-group">
-                        <label>Specifications (JSON format):</label>
-                        <textarea id="productSpecifications" placeholder='{"Brand": "GK", "Material": "Premium", "Size": "Standard"}' rows="3"></textarea>
-                        <small style="color: #666;">Enter as JSON object. Example: {"Brand": "GK", "Color": "Red"}</small>
+                        <label>Specifications (Simple Format):</label>
+                        <div id="specificationsBuilder" class="specifications-builder">
+                            <div class="spec-row">
+                                <input type="text" class="spec-key" placeholder="e.g., Brand" value="">
+                                <input type="text" class="spec-value" placeholder="e.g., GiftKrafts" value="">
+                                <button type="button" class="btn-remove-spec" onclick="removeSpecRow(this)" style="display: none;">×</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" onclick="addSpecRow()" style="margin-top: 10px;">+ Add Specification</button>
                     </div>
+                    
                     <div class="form-group">
-                        <label>Original Price (₹) - Optional for discount display:</label>
-                        <input type="number" id="productOriginalPrice" placeholder="Enter original price">
+                        <label>Original Price (₹) - For showing discounts:</label>
+                        <input type="number" id="productOriginalPrice" placeholder="Enter original price (optional)">
+                        <small style="color: #666;">If filled, discount badge will show automatically</small>
                     </div>
+                    
                     <div class="form-group">
                         <label>Stock Status:</label>
                         <select id="productStock">
-                            <option value="in-stock">In Stock</option>
-                            <option value="out-of-stock">Out of Stock</option>
-                            <option value="limited">Limited Stock</option>
+                            <option value="in-stock">✅ In Stock</option>
+                            <option value="limited">⚠️ Limited Stock</option>
+                            <option value="out-of-stock">❌ Out of Stock</option>
                         </select>
                     </div>
                 </div>
@@ -6173,40 +6396,143 @@
             `).join('');
         }
 
+        // ========== USER-FRIENDLY IMAGE UPLOAD ==========
+        let uploadedImages = [];
+
+        function handleMultipleImages(event) {
+            const files = event.target.files;
+            if (files.length === 0) return;
+
+            for (let file of files) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        uploadedImages.push(e.target.result);
+                        displayImagePreviewGrid();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+        function displayImagePreviewGrid() {
+            const grid = document.getElementById('imagePreviewGrid');
+            
+            if (uploadedImages.length === 0) {
+                grid.style.display = 'none';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            grid.innerHTML = uploadedImages.map((img, index) => `
+                <div class="preview-image-item ${index === 0 ? 'first-image' : ''}" draggable="true" ondragstart="dragStart(event, ${index})" ondrop="drop(event, ${index})" ondragover="allowDrop(event)">
+                    <img src="${img}" alt="Image ${index + 1}">
+                    ${index === 0 ? '<div class="preview-image-badge">Main</div>' : ''}
+                    <div class="preview-image-controls">
+                        ${index > 0 ? `<button class="preview-control-btn btn-move-left" onclick="moveImage(${index}, -1)" title="Move Left">←</button>` : ''}
+                        ${index < uploadedImages.length - 1 ? `<button class="preview-control-btn btn-move-right" onclick="moveImage(${index}, 1)" title="Move Right">→</button>` : ''}
+                        <button class="preview-control-btn btn-delete-img" onclick="deleteImage(${index})" title="Delete">🗑️</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function deleteImage(index) {
+            if (confirm('Delete this image?')) {
+                uploadedImages.splice(index, 1);
+                displayImagePreviewGrid();
+            }
+        }
+
+        function moveImage(fromIndex, direction) {
+            const toIndex = fromIndex + direction;
+            if (toIndex < 0 || toIndex >= uploadedImages.length) return;
+
+            [uploadedImages[fromIndex], uploadedImages[toIndex]] = [uploadedImages[toIndex], uploadedImages[fromIndex]];
+            displayImagePreviewGrid();
+        }
+
+        // Drag and drop functionality
+        let draggedIndex = null;
+
+        function dragStart(event, index) {
+            draggedIndex = index;
+            event.dataTransfer.effectAllowed = 'move';
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
+        }
+
+        function drop(event, dropIndex) {
+            event.preventDefault();
+            if (draggedIndex === null || draggedIndex === dropIndex) return;
+
+            const draggedImage = uploadedImages[draggedIndex];
+            uploadedImages.splice(draggedIndex, 1);
+            uploadedImages.splice(dropIndex, 0, draggedImage);
+            
+            displayImagePreviewGrid();
+            draggedIndex = null;
+        }
+
+        // ========== USER-FRIENDLY SPECIFICATIONS BUILDER ==========
+        function addSpecRow() {
+            const builder = document.getElementById('specificationsBuilder');
+            const newRow = document.createElement('div');
+            newRow.className = 'spec-row';
+            newRow.innerHTML = `
+                <input type="text" class="spec-key" placeholder="e.g., Color">
+                <input type="text" class="spec-value" placeholder="e.g., Red">
+                <button type="button" class="btn-remove-spec" onclick="removeSpecRow(this)">×</button>
+            `;
+            builder.appendChild(newRow);
+        }
+
+        function removeSpecRow(button) {
+            button.parentElement.remove();
+        }
+
+        function getSpecifications() {
+            const specs = {};
+            const rows = document.querySelectorAll('.spec-row');
+            
+            rows.forEach(row => {
+                const key = row.querySelector('.spec-key').value.trim();
+                const value = row.querySelector('.spec-value').value.trim();
+                if (key && value) {
+                    specs[key] = value;
+                }
+            });
+
+            return specs;
+        }
+
         async function addProduct() {
             const name = document.getElementById('productName').value.trim();
             const price = parseInt(document.getElementById('productPrice').value);
-            const originalPrice = parseInt(document.getElementById('productOriginalPrice').value) || null;
             const category = document.getElementById('productCategory').value;
-            const emoji = document.getElementById('productEmoji').value.trim();
-            const description = document.getElementById('productDescription').value.trim();
+
+            // Validate required fields
+            if (!name || !price || !category) {
+                alert('⚠️ Please fill in all required fields:\n• Product Name\n• Price\n• Category\n• At least one image');
+                return;
+            }
+
+            if (uploadedImages.length === 0) {
+                alert('⚠️ Please upload at least one product image!');
+                return;
+            }
+
+            // Optional fields
+            const emoji = document.getElementById('productEmoji').value.trim() || '🎁';
+            const originalPrice = parseInt(document.getElementById('productOriginalPrice').value) || null;
+            const description = document.getElementById('productDescription').value.trim() || 'No description available.';
             const stockStatus = document.getElementById('productStock').value;
             
-            // Get uploaded image or use placeholder
-            const imagePreview = document.getElementById('productImageDisplay');
-            let image = imagePreview && imagePreview.src ? imagePreview.src : null;
-            
-            // Get additional images
-            const imagesInput = document.getElementById('productImages').value.trim();
-            let images = [];
-            if (imagesInput) {
-                images = imagesInput.split(',').map(url => url.trim()).filter(url => url);
-            }
-            if (image) {
-                images.unshift(image); // Add main image as first
-            }
-            
-            // Get specifications
-            let specifications = {};
-            const specsInput = document.getElementById('productSpecifications').value.trim();
-            if (specsInput) {
-                try {
-                    specifications = JSON.parse(specsInput);
-                } catch (e) {
-                    alert('Invalid specifications format. Please use valid JSON.');
-                    return;
-                }
-            }
+            // Get specifications from builder
+            let specifications = getSpecifications();
             
             // Add default specs
             specifications = {
@@ -6215,19 +6541,6 @@
                 'Availability': stockStatus === 'in-stock' ? 'In Stock' : stockStatus === 'limited' ? 'Limited Stock' : 'Out of Stock',
                 ...specifications
             };
-            
-            // If no image uploaded, create a placeholder
-            if (images.length === 0) {
-                const colors = ['FF6B6B', '4ECDC4', '45B7D1', 'FFA726', '66BB6A', 'AB47BC'];
-                const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                image = `https://via.placeholder.com/300x300/${randomColor}/ffffff?text=${encodeURIComponent(emoji || '🎁')}`;
-                images = [image];
-            }
-
-            if (!name || !price || !emoji) {
-                alert('Please fill in required fields: Name, Price, Emoji');
-                return;
-            }
 
             const newProduct = {
                 id: nextProductId++,
@@ -6236,9 +6549,9 @@
                 originalPrice,
                 category, 
                 emoji,
-                image: images[0] || null,
-                images: images,
-                description: description || 'No description available.',
+                image: uploadedImages[0],
+                images: [...uploadedImages],
+                description: description,
                 specifications: specifications,
                 stockStatus: stockStatus,
                 createdAt: new Date().toISOString()
@@ -6246,25 +6559,27 @@
 
             try {
                 if (window.firebaseDB?.useFirebase) {
-                    // Add to Firebase (will auto-sync to all devices)
+                    // Add to Firebase
                     const firebaseId = await addProductToFirebase(newProduct);
+                    newProduct.firebaseId = firebaseId;
+                    products.push(newProduct);
                     console.log('Product added to Firebase with ID:', firebaseId);
-                    alert('Product added successfully! ✨ It will appear on all devices instantly.');
+                    alert('✨ Product added successfully!\n\nIt will appear on all devices instantly.');
                 } else {
                     // Fallback to localStorage
                     products.push(newProduct);
                     saveProducts();
-                    loadProductsTable();
-                    loadProducts('all');
-                    loadBestsellers();
-                    updateDashboardStats();
-                    alert('Product added successfully! (Local storage - only visible on this device)');
+                    alert('✅ Product added successfully!\n\n(Local storage - only visible on this device)');
                 }
                 
+                loadProductsTable();
+                loadProducts('all');
+                loadBestsellers();
+                updateDashboardStats();
                 clearProductForm();
             } catch (error) {
                 console.error('Error adding product:', error);
-                alert('Error adding product. Please try again.');
+                alert('❌ Error adding product:\n' + error.message + '\n\nPlease try again.');
             }
         }
 
@@ -6353,18 +6668,22 @@
             document.getElementById('productOriginalPrice').value = '';
             document.getElementById('productEmoji').value = '';
             document.getElementById('productDescription').value = '';
-            document.getElementById('productImages').value = '';
-            document.getElementById('productSpecifications').value = '';
             document.getElementById('productStock').value = 'in-stock';
             
-            // Clear image upload
-            const previewContainer = document.getElementById('productImagePreview');
-            const uploadBtn = document.querySelector('.image-upload-btn');
-            const fileInput = document.getElementById('productImageInput');
+            // Clear uploaded images
+            uploadedImages = [];
+            displayImagePreviewGrid();
+            document.getElementById('multiImageInput').value = '';
             
-            if (previewContainer) previewContainer.style.display = 'none';
-            if (uploadBtn) uploadBtn.style.display = 'flex';
-            if (fileInput) fileInput.value = '';
+            // Reset specifications builder
+            const builder = document.getElementById('specificationsBuilder');
+            builder.innerHTML = `
+                <div class="spec-row">
+                    <input type="text" class="spec-key" placeholder="e.g., Brand" value="">
+                    <input type="text" class="spec-value" placeholder="e.g., GiftKrafts" value="">
+                    <button type="button" class="btn-remove-spec" onclick="removeSpecRow(this)" style="display: none;">×</button>
+                </div>
+            `;
         }
 
         function saveProducts() {
