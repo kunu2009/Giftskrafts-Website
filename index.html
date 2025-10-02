@@ -5724,7 +5724,7 @@
         }
 
         // Settings Management
-        function saveSettings() {
+        async function saveSettings() {
             const settings = {
                 storeName: document.getElementById('storeName').value,
                 whatsappNumber: document.getElementById('whatsappNumber').value,
@@ -5734,16 +5734,29 @@
                 contactEmail: document.getElementById('contactEmail').value,
                 contactInstagram: document.getElementById('contactInstagram').value,
                 contactFacebook: document.getElementById('contactFacebook').value,
-                contactAddress: document.getElementById('contactAddress').value
+                contactAddress: document.getElementById('contactAddress').value,
+                timestamp: new Date().toISOString()
             };
             
+            // Save to localStorage (backup)
             localStorage.setItem('gkSettings', JSON.stringify(settings));
-            document.querySelector('.top-bar').innerHTML = settings.topBarMessage;
             
-            // Update contact page
+            // Save to Firebase for multi-user sync
+            if (window.firebaseDB?.useFirebase) {
+                try {
+                    const { db, setDoc, doc } = window.firebaseDB;
+                    await setDoc(doc(db, 'settings', 'storeSettings'), settings);
+                    console.log('🔥 Settings synced to Firebase');
+                } catch (error) {
+                    console.error('Error saving settings to Firebase:', error);
+                }
+            }
+            
+            // Update UI immediately
+            document.querySelector('.top-bar').innerHTML = settings.topBarMessage;
             updateContactPage(settings);
             
-            alert('✅ Settings saved successfully! Contact page updated.');
+            alert('✅ Settings saved successfully! All users will see the changes.');
         }
 
         // Update contact page with admin settings
@@ -5791,19 +5804,111 @@
             }
         }
 
+        // Load settings from Firebase
+        async function loadSettingsFromFirebase() {
+            if (!window.firebaseDB?.useFirebase) {
+                return null;
+            }
+            
+            try {
+                const { db, getDoc, doc } = window.firebaseDB;
+                const docSnap = await getDoc(doc(db, 'settings', 'storeSettings'));
+                
+                if (docSnap.exists()) {
+                    const settings = docSnap.data();
+                    // Save to localStorage for offline access
+                    localStorage.setItem('gkSettings', JSON.stringify(settings));
+                    return settings;
+                }
+            } catch (error) {
+                console.error('Error loading settings from Firebase:', error);
+            }
+            return null;
+        }
+
         // Load contact settings on page load
-        function loadContactSettings() {
-            const savedSettings = localStorage.getItem('gkSettings');
-            if (savedSettings) {
-                const settings = JSON.parse(savedSettings);
+        async function loadContactSettings() {
+            // Try Firebase first
+            let settings = await loadSettingsFromFirebase();
+            
+            // Fallback to localStorage
+            if (!settings) {
+                const savedSettings = localStorage.getItem('gkSettings');
+                if (savedSettings) {
+                    settings = JSON.parse(savedSettings);
+                }
+            }
+            
+            // Apply settings if found
+            if (settings) {
                 updateContactPage(settings);
                 
-                // Load into admin form
-                if (settings.contactPhone) document.getElementById('contactPhone').value = settings.contactPhone;
-                if (settings.contactEmail) document.getElementById('contactEmail').value = settings.contactEmail;
-                if (settings.contactInstagram) document.getElementById('contactInstagram').value = settings.contactInstagram;
-                if (settings.contactFacebook) document.getElementById('contactFacebook').value = settings.contactFacebook;
-                if (settings.contactAddress) document.getElementById('contactAddress').value = settings.contactAddress;
+                // Update top bar message
+                const topBar = document.querySelector('.top-bar');
+                if (topBar && settings.topBarMessage) {
+                    topBar.innerHTML = settings.topBarMessage;
+                }
+                
+                // Load into admin form if admin is logged in
+                if (document.getElementById('storeName') && settings.storeName) {
+                    document.getElementById('storeName').value = settings.storeName;
+                }
+                if (document.getElementById('whatsappNumber') && settings.whatsappNumber) {
+                    document.getElementById('whatsappNumber').value = settings.whatsappNumber;
+                }
+                if (document.getElementById('freeDeliveryAmount') && settings.freeDeliveryAmount) {
+                    document.getElementById('freeDeliveryAmount').value = settings.freeDeliveryAmount;
+                }
+                if (document.getElementById('topBarMessage') && settings.topBarMessage) {
+                    document.getElementById('topBarMessage').value = settings.topBarMessage;
+                }
+                if (document.getElementById('contactPhone') && settings.contactPhone) {
+                    document.getElementById('contactPhone').value = settings.contactPhone;
+                }
+                if (document.getElementById('contactEmail') && settings.contactEmail) {
+                    document.getElementById('contactEmail').value = settings.contactEmail;
+                }
+                if (document.getElementById('contactInstagram') && settings.contactInstagram) {
+                    document.getElementById('contactInstagram').value = settings.contactInstagram;
+                }
+                if (document.getElementById('contactFacebook') && settings.contactFacebook) {
+                    document.getElementById('contactFacebook').value = settings.contactFacebook;
+                }
+                if (document.getElementById('contactAddress') && settings.contactAddress) {
+                    document.getElementById('contactAddress').value = settings.contactAddress;
+                }
+            }
+        }
+
+        // Setup real-time Firebase listener for settings
+        function setupSettingsListener() {
+            if (!window.firebaseDB?.useFirebase) {
+                return;
+            }
+            
+            try {
+                const { db, doc, onSnapshot } = window.firebaseDB;
+                
+                onSnapshot(doc(db, 'settings', 'storeSettings'), (doc) => {
+                    if (doc.exists()) {
+                        const settings = doc.data();
+                        
+                        // Save to localStorage
+                        localStorage.setItem('gkSettings', JSON.stringify(settings));
+                        
+                        // Update UI for all users in real-time
+                        const topBar = document.querySelector('.top-bar');
+                        if (topBar && settings.topBarMessage) {
+                            topBar.innerHTML = settings.topBarMessage;
+                        }
+                        
+                        updateContactPage(settings);
+                        
+                        console.log('⚙️ Settings synced from Firebase in real-time');
+                    }
+                });
+            } catch (error) {
+                console.error('Error setting up settings listener:', error);
             }
         }
 
@@ -7165,6 +7270,9 @@
                 
                 // Setup real-time listeners for Firebase
                 setupFirebaseListeners();
+                
+                // Setup real-time settings sync for multi-user
+                setupSettingsListener();
                 
                 // Show Firebase status
                 if (window.firebaseDB?.useFirebase) {
