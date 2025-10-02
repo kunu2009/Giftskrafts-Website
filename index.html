@@ -6591,32 +6591,101 @@
             document.getElementById('productName').value = product.name;
             document.getElementById('productPrice').value = product.price;
             document.getElementById('productCategory').value = product.category;
-            document.getElementById('productEmoji').value = product.emoji;
+            document.getElementById('productEmoji').value = product.emoji || '';
             document.getElementById('productDescription').value = product.description || '';
+            
+            // Populate uploaded images array
+            uploadedImages = product.images ? [...product.images] : [];
+            displayImagePreviewGrid();
+            
+            // Populate specifications
+            const specsBuilder = document.querySelector('.specifications-builder');
+            if (specsBuilder && product.specifications) {
+                specsBuilder.innerHTML = '';
+                const specs = product.specifications;
+                const hasSpecs = Object.keys(specs).length > 0;
+                
+                if (hasSpecs) {
+                    Object.entries(specs).forEach(([key, value]) => {
+                        const row = document.createElement('div');
+                        row.className = 'spec-row';
+                        row.innerHTML = `
+                            <input type="text" class="spec-key" placeholder="e.g., Brand" value="${key}">
+                            <input type="text" class="spec-value" placeholder="e.g., GiftKrafts" value="${value}">
+                            <button type="button" class="btn-remove-spec" onclick="removeSpecRow(this)">×</button>
+                        `;
+                        specsBuilder.appendChild(row);
+                    });
+                } else {
+                    // Add empty row if no specs
+                    addSpecRow();
+                }
+            }
+            
+            // Populate other optional fields
+            document.getElementById('productOriginalPrice').value = product.originalPrice || '';
+            document.getElementById('productStock').value = product.stock || 'in-stock';
 
             document.getElementById('updateProductBtn').style.display = 'inline-block';
             document.getElementById('cancelEditBtn').style.display = 'inline-block';
         }
 
-        function updateProduct() {
+        async function updateProduct() {
             if (!currentEditingProduct) return;
             const product = products.find(p => p.id === currentEditingProduct);
             if (!product) return;
 
-            product.name = document.getElementById('productName').value.trim();
-            product.price = parseInt(document.getElementById('productPrice').value);
-            product.category = document.getElementById('productCategory').value;
-            product.emoji = document.getElementById('productEmoji').value.trim();
-            product.image = document.getElementById('productImage').value.trim() || null;
-            product.description = document.getElementById('productDescription').value.trim() || null;
+            // Validate required fields
+            const name = document.getElementById('productName').value.trim();
+            const price = document.getElementById('productPrice').value.trim();
+            const category = document.getElementById('productCategory').value;
+            
+            if (!name || !price || !category || uploadedImages.length === 0) {
+                alert('⚠️ Please fill all required fields:\n• Product Name\n• Price\n• Category\n• At least one image');
+                return;
+            }
 
-            saveProducts();
+            // Update product with new values
+            product.name = name;
+            product.price = parseInt(price);
+            product.category = category;
+            product.emoji = document.getElementById('productEmoji').value.trim();
+            product.description = document.getElementById('productDescription').value.trim() || null;
+            
+            // Update images from uploadedImages array
+            product.images = [...uploadedImages];
+            product.image = uploadedImages[0]; // Main image
+            
+            // Update specifications from builder
+            product.specifications = getSpecifications();
+            
+            // Update optional fields
+            const originalPrice = document.getElementById('productOriginalPrice').value.trim();
+            product.originalPrice = originalPrice ? parseInt(originalPrice) : null;
+            product.stock = document.getElementById('productStock').value;
+
+            // Save to Firebase or localStorage
+            if (window.firebaseDB?.useFirebase && product.firebaseId) {
+                try {
+                    await updateProductInFirebase(product.firebaseId, product);
+                    console.log('Product updated in Firebase');
+                    alert('✅ Product updated successfully! Changes will sync across all devices.');
+                } catch (error) {
+                    console.error('Firebase update error:', error);
+                    // Fallback to localStorage
+                    saveProducts();
+                    alert('✅ Product updated successfully (saved locally)!');
+                }
+            } else {
+                saveProducts();
+                alert('✅ Product updated successfully!');
+            }
+            
             clearProductForm();
             cancelEdit();
             loadProductsTable();
             loadProducts('all');
             loadBestsellers();
-            alert('Product updated successfully!');
         }
 
         async function deleteProduct(id) {
