@@ -6143,9 +6143,11 @@
         function sendOrderToWhatsApp() {
             if (!currentOrder) return;
             
-            const itemsList = currentOrder.items.map((item, index) => 
-                `${index + 1}. ${item.emoji} ${item.name} - ₹${item.price}`
-            ).join('%0A');
+            const itemsList = currentOrder.items.map((item, index) => {
+                const quantity = item.quantity || 1;
+                const itemTotal = item.price * quantity;
+                return `${index + 1}. ${item.emoji} ${item.name} x${quantity} - ₹${itemTotal}`;
+            }).join('%0A');
             
             const message = `🎁 *Giftskrafts Order Confirmation*%0A%0A` +
                 `*Order ID:* ${currentOrder.orderId}%0A` +
@@ -6165,9 +6167,11 @@
         
         // Send order notification to store owner (auto-notification)
         function sendOrderNotificationToOwner(orderData) {
-            const itemsList = orderData.items.map((item, index) => 
-                `${index + 1}. ${item.emoji} ${item.name} - ₹${item.price}`
-            ).join('%0A');
+            const itemsList = orderData.items.map((item, index) => {
+                const quantity = item.quantity || 1;
+                const itemTotal = item.price * quantity;
+                return `${index + 1}. ${item.emoji} ${item.name} x${quantity} - ₹${itemTotal}`;
+            }).join('%0A');
             
             const ownerMessage = `🔔 *NEW ORDER RECEIVED!*%0A%0A` +
                 `*Order ID:* ${orderData.orderId}%0A` +
@@ -9527,12 +9531,15 @@
                         
                         <div style="background: var(--light-gray); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
                             <h3 style="margin-bottom: 10px; font-size: 16px;">🛍️ Items (${order.items.length})</h3>
-                            ${order.items.map(item => `
+                            ${order.items.map(item => {
+                                const quantity = item.quantity || 1;
+                                const itemTotal = item.price * quantity;
+                                return `
                                 <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #ddd;">
-                                    <span>${item.emoji} ${item.name} ${item.quantity > 1 ? `<strong>x${item.quantity}</strong>` : ''}</span>
-                                    <strong>₹${item.price * (item.quantity || 1)}</strong>
+                                    <span>${item.emoji} ${item.name} ${quantity > 1 ? `<strong>x${quantity}</strong>` : ''}</span>
+                                    <strong>₹${itemTotal}</strong>
                                 </div>
-                            `).join('')}
+                            `}).join('')}
                             <div style="display: flex; justify-content: space-between; padding: 15px 0; font-size: 18px;">
                                 <strong>Total:</strong>
                                 <strong style="color: var(--primary-purple);">₹${order.total}</strong>
